@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────
+   Design System — Premium Minimal
+   Based on AI Portfolio Blueprint
+   ─────────────────────────────────────────────── */
+
+:root {
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+
+  /* Text */
+  --text-primary: #0f0f0f;
+  --text-secondary: #6b7280;
+  --text-tertiary: #9ca3af;
+
+  /* Borders */
+  --border-default: rgba(0, 0, 0, 0.08);
+  --border-emphasis: rgba(0, 0, 0, 0.16);
+
+  /* Accent — Purple */
+  --accent: #7c3aed;
+  --accent-light: #ede9fe;
+  --accent-dark: #5b21b6;
+
+  /* Status Colors */
+  --success: #16a34a;
+  --success-light: #dcfce7;
+  --info: #2563eb;
+  --info-light: #dbeafe;
+  --warning: #d97706;
+  --warning-light: #fef3c7;
+
+  /* Terminal (used only in terminal/code/metric components) */
+  --terminal-bg: #0e0e0e;
+  --terminal-text: #e0e0e0;
+  --terminal-green: #4ade80;
+  --terminal-purple: #a78bfa;
+  --terminal-border: #2a2a2a;
+
+  /* Mapped for Tailwind usage */
+  --background: var(--bg-primary);
+  --foreground: var(--text-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1a1a1a;
+
+    --text-primary: #f0f0f0;
+    --text-secondary: #9ca3af;
+    --text-tertiary: #4b5563;
+
+    --border-default: rgba(255, 255, 255, 0.06);
+    --border-emphasis: rgba(255, 255, 255, 0.12);
+
+    --accent: #a78bfa;
+    --accent-light: #2e1065;
+    --accent-dark: #c4b5fd;
+
+    --success: #4ade80;
+    --success-light: #052e16;
+    --info: #60a5fa;
+    --info-light: #172554;
+    --warning: #fbbf24;
+    --warning-light: #451a03;
+
+    --background: var(--bg-primary);
+    --foreground: var(--text-primary);
+  }
+}
+
+/* ───────────────────────────────────────────────
+   Tailwind Theme Extension (v4 @theme inline)
+   ─────────────────────────────────────────────── */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-tertiary: var(--bg-tertiary);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+
+  --color-border-default: var(--border-default);
+  --color-border-emphasis: var(--border-emphasis);
+
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-accent-dark: var(--accent-dark);
+
+  --color-success: var(--success);
+  --color-success-light: var(--success-light);
+  --color-info: var(--info);
+  --color-info-light: var(--info-light);
+  --color-warning: var(--warning);
+  --color-warning-light: var(--warning-light);
+
+  --color-terminal-bg: var(--terminal-bg);
+  --color-terminal-text: var(--terminal-text);
+  --color-terminal-green: var(--terminal-green);
+  --color-terminal-purple: var(--terminal-purple);
+  --color-terminal-border: var(--terminal-border);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ───────────────────────────────────────────────
+   Base Styles
+   ─────────────────────────────────────────────── */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ───────────────────────────────────────────────
+   Animations
+   ─────────────────────────────────────────────── */
+
+/* Terminal cursor blink (CSS only — no JS) */
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+/* Availability dot pulse */
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.2);
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Smooth fade-in-up for sections */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ───────────────────────────────────────────────
+   Scrollbar Styling
+   ─────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-emphasis);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ───────────────────────────────────────────────
+   Selection
+   ─────────────────────────────────────────────── */
+
+::selection {
+  background: var(--accent-light);
+  color: var(--accent);
+}
