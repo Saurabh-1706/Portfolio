@@ -28,34 +28,40 @@
 
 ## Current Project State
 
-- **Phase**: Phase 1 — Foundation (COMPLETE — ready to deploy)
-- **Frontend**: ✅ Running on http://localhost:3000
-- **Backend**: ✅ Structure created, needs Python venv setup
-- **Admin CMS**: ✅ Built — /admin/dashboard, /admin/projects (CRUD)
-- **Auth**: ✅ Clerk integration built — needs real API keys from clerk.com
-- **Database**: Docker Compose ready, not yet started
-- **Status**: Full Phase 1 feature set built. Ready for deployment (Step 7).
+- **Phase**: AI Chatbot — ALL 5 PHASES COMPLETE ✅
+- **Frontend**: ✅ Running on http://localhost:3000 — ChatLauncher live on all pages
+- **Backend**: ✅ Running — RAG pipeline, /chat SSE endpoint, /admin/reindex live
+- **Admin CMS**: ✅ Built — /admin/dashboard, /admin/projects (CRUD), /admin/chatlogs (NEW)
+- **Auth**: ✅ Clerk keys configured
+- **Database**: ✅ Docker running — PostgreSQL + Redis + ChromaDB all up
+- **Migrations**: ✅ `7134732d2faa` (head) — chatbot tables created
+- **Status**: Full chatbot feature complete. Add OpenAI key + seed content to activate.
 
 ---
 
 ## Development Phases
 
-### Phase 1 — Foundation (Week 1–2) — CURRENT
+### Phase 1 — Foundation (Week 1–2) — COMPLETE ✅
 - [x] Set up Next.js project with Tailwind + design system
 - [x] Set up FastAPI backend structure with SQLAlchemy models
-- [ ] Run Alembic migrations for all tables
-- [x] Build admin dashboard with Clerk auth (Step 6 complete)
-- [x] Implement project CRUD API (code written)
+- [x] Run Alembic migrations for all tables
+- [x] Build admin dashboard with Clerk auth
+- [x] Implement project CRUD API
 - [x] Build dynamic project cards on homepage
 - [ ] Deploy frontend to Vercel, backend to Railway
 
-### Phase 2 — AI Chatbot (Week 3–4)
-- [ ] Prepare knowledge base documents
-- [ ] Set up ChromaDB, run ingest.py
-- [ ] Build LangChain RAG pipeline
-- [ ] Create /chat streaming endpoint
-- [ ] Build chatbot UI with streaming token display
-- [ ] Add source citations
+### Phase 2 — AI Chatbot (Week 3–4) — COMPLETE ✅
+- [x] Set up ChromaDB vectorstore (HTTP client to Docker service)
+- [x] Build LangChain ingestion pipeline (chunker + embedder + reindex)
+- [x] Create POST /admin/reindex endpoint
+- [x] Build LangGraph RAG pipeline (retrieve → grade → generate)
+- [x] Create /chat SSE streaming endpoint
+- [x] Build chatbot UI widget (launcher, panel, streaming messages)
+- [x] Add source citations (chips under bot answers)
+- [x] Add thumbs up/down feedback
+- [x] Add admin chat log viewer (/admin/chatlogs)
+- [x] Add rate limiting (10 req/5 min per IP, in-memory)
+- [x] ContentMixin + ResumeEntry + Profile + ChatLog models
 
 ### Phase 3 — Terminal + GitHub (Week 5)
 - [ ] Build terminal component with command registry
@@ -67,7 +73,6 @@
 
 ### Phase 4 — Playground + Polish (Week 6)
 - [ ] Build 2–3 live AI demos
-- [ ] Add rate limiting
 - [ ] Write first 2 blog posts
 - [ ] Add build timeline section
 - [ ] Add Framer Motion animations throughout
@@ -135,6 +140,53 @@
 - `recharts` — charts (for GitHub dashboard)
 - `@heroicons/react` — icons
 
+### Session 2 — 2026-06-20 (AI Chatbot — All 5 Phases)
+
+#### Backend — New Files
+| File | Purpose |
+|---|---|
+| `app/models/mixins.py` | ContentMixin (is_published, is_indexed, updated_at) |
+| `app/models/resume_entry.py` | ResumeEntry model (work/edu/cert/achievement) |
+| `app/models/profile.py` | Profile singleton model (about me) |
+| `app/models/chat_log.py` | ChatLog model (question, answer, sources, feedback) |
+| `app/vectorstore.py` | ChromaDB HTTP client, portfolio_content collection |
+| `app/ingestion/chunker.py` | RecursiveCharacterTextSplitter, 300–500 token chunks |
+| `app/ingestion/embedder.py` | Batch OpenAI text-embedding-3-small calls |
+| `app/ingestion/reindex.py` | Full orchestration: query → chunk → embed → upsert → mark indexed |
+| `app/chat/prompts.py` | System prompts: grounding, citation, topic guard, fallback |
+| `app/chat/rate_limit.py` | In-memory sliding window: 10 req/5 min per IP |
+| `app/chat/graph.py` | LangGraph pipeline: retrieve → grade → generate (streaming) |
+| `app/routers/chat.py` | POST /chat SSE endpoint + chat_log persistence |
+| `app/routes/admin_chatlogs.py` | GET /admin/chatlogs (paginated) + PATCH feedback |
+| `alembic/versions/7134732d2faa_add_chatbot_data_layer.py` | Migration: chatbot tables + ContentMixin fields |
+
+#### Backend — Modified Files
+| File | Change |
+|---|---|
+| `app/models/project.py` | Added ContentMixin (is_published, is_indexed) |
+| `app/models/__init__.py` | Added ResumeEntry, Profile, ChatLog imports |
+| `app/core/config.py` | Added CHROMA_HOST/PORT (replaced CHROMA_PERSIST_DIR) |
+| `app/routes/admin.py` | Added POST /admin/reindex endpoint |
+| `app/main.py` | Registered chat + admin_chatlogs routers |
+| `requirements.txt` | Added langchain, langchain-openai, langchain-chroma==0.2.3, langgraph, chromadb==0.6.3, openai |
+| `.env` | Updated CHROMA_HOST/PORT |
+
+#### Frontend — New Files
+| File | Purpose |
+|---|---|
+| `components/chatbot/useChatStream.ts` | SSE streaming hook, UUID session, [SOURCES] parsing |
+| `components/chatbot/StarterPrompts.tsx` | 4 tappable suggested questions on empty state |
+| `components/chatbot/ChatMessage.tsx` | Message bubble, typing indicator, source chips, feedback |
+| `components/chatbot/ChatPanel.tsx` | Chat window with message list + textarea input |
+| `components/chatbot/ChatLauncher.tsx` | Floating bottom-right button with pulse animation |
+| `app/admin/chatlogs/page.tsx` | Admin table: paginated chat transcripts, expandable answers |
+
+#### Frontend — Modified Files
+| File | Change |
+|---|---|
+| `app/globals.css` | Added full chatbot CSS (launcher, panel, messages, chips, feedback) |
+| `app/layout.tsx` | Mounted `<ChatLauncher />` globally |
+
 ---
 
 ## Change Log
@@ -158,30 +210,52 @@
 | 19:40 | Created API client | With mock data fallback for development without backend |
 | 19:42 | Verified frontend | All pages return 200, mock data working correctly |
 
+### Session 2 — 2026-06-20
+
+| Time | Action | Details |
+|---|---|---|
+| 11:30 | Phase 1: Data layer | ContentMixin + ResumeEntry + Profile + ChatLog models |
+| 11:35 | Phase 1: Migration | Alembic `7134732d2faa` applied. Git push `f30cc49` |
+| 11:40 | Phase 2: Ingestion | vectorstore.py, chunker.py, embedder.py, reindex.py |
+| 11:42 | Phase 2: /admin/reindex | Endpoint added to admin.py |
+| 11:50 | Phase 3: RAG pipeline | prompts.py, rate_limit.py, graph.py (LangGraph) |
+| 11:55 | Phase 3: /chat endpoint | SSE streaming + chat_log write after completion |
+| 12:00 | Phase 4: Frontend | ChatLauncher, ChatPanel, ChatMessage, StarterPrompts, useChatStream |
+| 12:05 | Phase 4: CSS + layout | 400 lines chatbot CSS added to globals.css, ChatLauncher mounted |
+| 12:08 | Phase 5: Polish | Source chips, feedback buttons, error states (built into Phase 4) |
+| 12:10 | Phase 5: Admin logs | /admin/chatlogs page + /api/admin/chatlogs backend |
+| 12:18 | Verify + push | All imports OK, git push `1f70453` (Phases 2–5) |
+
 ---
 
 ## Key Decisions
 
 1. **Tailwind v4**: Using `@theme inline` syntax (not v3 `tailwind.config.ts` — v4 is default in Next.js 16)
-2. **Geist fonts**: Using Next.js default Geist + Geist Mono instead of Inter + JetBrains Mono (blueprint preference but Geist is the new standard)
+2. **Geist fonts**: Using Next.js default Geist + Geist Mono
 3. **Mock data fallback**: Frontend works independently with realistic mock projects when backend is offline
-4. **API prefix**: All backend routes prefixed with `/api` (e.g., `/api/projects`)
-5. **No Clerk yet**: Admin pages created but auth guard not implemented — will add when Clerk keys are available
+4. **API prefix**: All backend routes prefixed with `/api`
+5. **Clerk keys**: Configured (pk_test + sk_test) — Clerk auth guard not enforced on admin routes yet
+6. **ChromaDB HTTP client**: Uses Docker-hosted ChromaDB at localhost:8001 (not in-process)
+7. **Single ChromaDB collection**: `portfolio_content` with source_type metadata — no separate collections per type
+8. **LangGraph over plain chain**: Future-proof for adding nodes (e.g., query rewriting, multi-hop retrieval)
+9. **In-memory rate limiter**: Redis-backed rate limiting deferred until abuse is observed
+10. **langchain-chroma==0.2.3**: Pinned to resolve conflict with chromadb==0.6.3 (0.2.4 was incompatible)
 
 ---
 
 ## Known Issues / Blockers
 
-1. Database not started — needs Docker Desktop running + `docker compose up -d` for PostgreSQL + Redis + ChromaDB.
-2. Migrations need to be run against the live database (once Docker runs PostgreSQL).
+1. **OpenAI key required**: `OPENAI_API_KEY` in `backend/.env` must be set before /chat or /admin/reindex will work.
+2. **Content needs seeding**: No Profile/ResumeEntry rows yet — add them via admin panel or Python shell, then hit /admin/reindex.
+3. **Clerk auth not enforced**: /admin/reindex and /admin/chatlogs are currently open — add Clerk JWT middleware before deploying.
 
 ---
 
 ## Next Steps
 
-1. Start Docker Desktop and run `docker compose up -d`
-2. Run database migrations to set up schema (`.venv\Scripts\alembic revision --autogenerate -m "init tables"` then `.venv\Scripts\alembic upgrade head`)
-3. Run uvicorn backend server
-4. Run Next.js frontend dev server
-5. Connect frontend to live backend API
-6. Deploy to Vercel + Railway
+1. **Add OpenAI key** to `backend/.env` → `OPENAI_API_KEY=sk-...`
+2. **Seed content**: Insert at least one `Profile` row and some `ResumeEntry` rows via Python shell or admin UI
+3. **Reindex**: Hit `POST /api/admin/reindex` to embed content into ChromaDB
+4. **Test chatbot**: Open the chat widget on the frontend, ask a question
+5. **Deploy**: Frontend to Vercel, backend to Railway (add env vars in Railway dashboard)
+6. **Protect admin routes**: Add Clerk JWT middleware to /admin/reindex and /admin/chatlogs before deploying
