@@ -2,6 +2,7 @@
 Admin routes — protected CRUD endpoints for managing portfolio content.
 In production, these should be behind Clerk JWT verification.
 """
+import logging
 import uuid
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -11,6 +12,7 @@ from app.core.database import get_db
 from app.models.project import Project
 from app.schemas import ProjectCreate, ProjectUpdate, ProjectResponse
 
+logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/admin", tags=["admin"])
 
 
@@ -75,3 +77,28 @@ async def delete_project(
         raise HTTPException(status_code=404, detail="Project not found")
 
     await db.delete(project)
+
+
+# ──────────────────────────────────────────────
+# Reindex (Phase 2)
+# ──────────────────────────────────────────────
+
+@router.post("/reindex")
+async def trigger_reindex(db: AsyncSession = Depends(get_db)):
+    """
+    Trigger a full incremental reindex of all published, un-indexed content
+    into ChromaDB. Returns a summary of how many rows were processed.
+
+    In production this endpoint must be protected by Clerk admin auth.
+    """
+    try:
+        from app.ingestion.reindex import run_reindex
+        summary = await run_reindex(db)
+        return {
+            "reindexed": summary.reindexed,
+            "skipped": summary.skipped,
+            "errors": summary.errors,
+        }
+    except Exception as exc:
+        logger.error("Reindex failed: %s", exc, exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Reindex failed: {exc}")

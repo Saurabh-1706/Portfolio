@@ -7,6 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import get_settings
 from app.routes import projects, admin
+from app.routes import admin_chatlogs
+from app.routers import chat
 
 settings = get_settings()
 
@@ -40,6 +42,8 @@ app.add_middleware(
 # Register routers
 app.include_router(projects.router, prefix="/api")
 app.include_router(admin.router, prefix="/api")
+app.include_router(admin_chatlogs.router, prefix="/api")  # Phase 5: /api/admin/chatlogs
+app.include_router(chat.router, prefix="/api")  # Phase 3: /api/chat
 
 
 @app.get("/health")

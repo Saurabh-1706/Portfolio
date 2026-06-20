@@ -18,8 +18,9 @@ class Settings(BaseSettings):
     # Redis
     REDIS_URL: str = "redis://localhost:6379"
 
-    # ChromaDB
-    CHROMA_PERSIST_DIR: str = "./chroma_db"
+    # ChromaDB (HTTP client pointing at the Docker service)
+    CHROMA_HOST: str = "localhost"
+    CHROMA_PORT: int = 8001
 
     # OpenAI
     OPENAI_API_KEY: str = ""
