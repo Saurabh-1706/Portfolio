@@ -1,5 +1,6 @@
 """
 Project model — matches the projects table from the blueprint.
+Uses ContentMixin to participate in the chatbot ingestion pipeline.
 """
 import uuid
 from datetime import datetime
@@ -8,9 +9,10 @@ from sqlalchemy.dialects.postgresql import UUID, ARRAY, JSONB
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.core.database import Base
+from app.models.mixins import ContentMixin
 
 
-class Project(Base):
+class Project(ContentMixin, Base):
     __tablename__ = "projects"
 
     id: Mapped[uuid.UUID] = mapped_column(
@@ -38,6 +40,4 @@ class Project(Base):
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
-    updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
-    )
+
