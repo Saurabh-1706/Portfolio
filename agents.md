@@ -225,6 +225,7 @@
 | 12:08 | Phase 5: Polish | Source chips, feedback buttons, error states (built into Phase 4) |
 | 12:10 | Phase 5: Admin logs | /admin/chatlogs page + /api/admin/chatlogs backend |
 | 12:18 | Verify + push | All imports OK, git push `1f70453` (Phases 2–5) |
+| 21:30 | Report & Seeding | Generated `Portfolio_Project_Summary.docx`, upgraded chromadb client to `1.0.0` to resolve `_type` KeyError, created/ran `seed_data.py`, and completed initial vector reindexing (13 chunks loaded). |
 
 ---
 
@@ -239,23 +240,19 @@
 7. **Single ChromaDB collection**: `portfolio_content` with source_type metadata — no separate collections per type
 8. **LangGraph over plain chain**: Future-proof for adding nodes (e.g., query rewriting, multi-hop retrieval)
 9. **In-memory rate limiter**: Redis-backed rate limiting deferred until abuse is observed
-10. **langchain-chroma==0.2.3**: Pinned to resolve conflict with chromadb==0.6.3 (0.2.4 was incompatible)
+10. **chromadb==1.0.0 Client Upgrade**: Upgraded local package to match ChromaDB server version `1.0.0` (resolving strict config parsing key error `_type`).
 
 ---
 
 ## Known Issues / Blockers
 
-1. **OpenAI key required**: `OPENAI_API_KEY` in `backend/.env` must be set before /chat or /admin/reindex will work.
-2. **Content needs seeding**: No Profile/ResumeEntry rows yet — add them via admin panel or Python shell, then hit /admin/reindex.
-3. **Clerk auth not enforced**: /admin/reindex and /admin/chatlogs are currently open — add Clerk JWT middleware before deploying.
+1. **Clerk auth not enforced**: /admin/reindex and /admin/chatlogs are currently open — add Clerk JWT middleware before deploying.
 
 ---
 
 ## Next Steps
 
-1. **Add OpenAI key** to `backend/.env` → `OPENAI_API_KEY=sk-...`
-2. **Seed content**: Insert at least one `Profile` row and some `ResumeEntry` rows via Python shell or admin UI
-3. **Reindex**: Hit `POST /api/admin/reindex` to embed content into ChromaDB
-4. **Test chatbot**: Open the chat widget on the frontend, ask a question
-5. **Deploy**: Frontend to Vercel, backend to Railway (add env vars in Railway dashboard)
-6. **Protect admin routes**: Add Clerk JWT middleware to /admin/reindex and /admin/chatlogs before deploying
+1. **Test chatbot**: Run backend + frontend locally and ask questions to verify the RAG content replies.
+2. **Deploy**: Frontend to Vercel, backend to Railway (add env vars, including Postgres/Redis/Chroma/OpenAI keys, in the dashboards).
+3. **Protect admin routes**: Enforce Clerk auth guards on admin endpoints before production staging.
+4. **Proceed to Phase 3**: Build the interactive Terminal component and integrate the GitHub sync functionality.
