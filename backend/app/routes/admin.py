@@ -102,3 +102,26 @@ async def trigger_reindex(db: AsyncSession = Depends(get_db)):
     except Exception as exc:
         logger.error("Reindex failed: %s", exc, exc_info=True)
         raise HTTPException(status_code=500, detail=f"Reindex failed: {exc}")
+
+
+# ──────────────────────────────────────────────
+# GitHub Sync (Phase 2)
+# ──────────────────────────────────────────────
+
+@router.post("/github/sync")
+async def trigger_github_sync(db: AsyncSession = Depends(get_db)):
+    """
+    Manually trigger a sync of GitHub repositories and contribution days
+    from the GitHub GraphQL API, updates PostgreSQL, and refreshes the Redis cache.
+    """
+    try:
+        from app.github.sync import run_github_sync
+        result = await run_github_sync(db)
+        return {
+            "status": "success",
+            "details": result
+        }
+    except Exception as exc:
+        logger.error("GitHub sync failed: %s", exc, exc_info=True)
+        raise HTTPException(status_code=500, detail=f"GitHub sync failed: {exc}")
+

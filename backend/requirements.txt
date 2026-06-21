@@ -36,3 +36,5 @@ openai==1.86.0
 
 # Utilities
 python-dotenv==1.0.1
+apscheduler==3.10.4
+
