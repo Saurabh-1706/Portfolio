@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import get_settings
-from app.routes import projects, admin, admin_chatlogs, github
+from app.routes import projects, admin, admin_chatlogs, github, skills, resume, blogs
 from app.routers import chat
 
 settings = get_settings()
@@ -56,6 +56,10 @@ app.include_router(admin.router, prefix="/api")
 app.include_router(admin_chatlogs.router, prefix="/api")  # Phase 5: /api/admin/chatlogs
 app.include_router(chat.router, prefix="/api")  # Phase 3: /api/chat
 app.include_router(github.router, prefix="/api")  # GitHub stats
+app.include_router(skills.router, prefix="/api")
+app.include_router(resume.router, prefix="/api")
+app.include_router(blogs.router, prefix="/api")
+
 
 
 

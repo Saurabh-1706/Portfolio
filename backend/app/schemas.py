@@ -134,3 +134,39 @@ class TimelineResponse(TimelineBase):
     id: uuid.UUID
 
     model_config = {"from_attributes": True}
+
+
+# ──────────────────────────────────────────────
+# Resume Entry & Profile Schemas
+# ──────────────────────────────────────────────
+from datetime import date
+
+class ResumeEntryResponse(BaseModel):
+    id: uuid.UUID
+    entry_type: str
+    title: str
+    organization: str | None = None
+    location: str | None = None
+    start_date: date | None = None
+    end_date: date | None = None
+    description: str | None = None
+    sort_order: int = 0
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+
+
+class ProfileResponse(BaseModel):
+    id: uuid.UUID
+    full_name: str
+    headline: str | None = None
+    summary: str | None = None
+    looking_for: str | None = None
+    skills: list[str] | None = None
+    email: str | None = None
+    github_url: str | None = None
+    linkedin_url: str | None = None
+    created_at: datetime
+
+    model_config = {"from_attributes": True}
+

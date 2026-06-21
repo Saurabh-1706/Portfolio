@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import SectionHeading from "@/components/SectionHeading";
@@ -15,33 +16,26 @@ export default async function HomePage() {
       <Hero />
 
       {/* Featured Projects */}
-      <section className="max-w-[1100px] mx-auto px-6 pb-20">
+      <section className="max-w-[1100px] mx-auto px-6 py-20">
         <SectionHeading
-          eyebrow="Selected work"
-          title="Featured projects"
-          description="Production-grade systems I've designed and built — from AI pipelines to full-stack platforms."
+          title="Featured Projects"
+          description="A selection of RAG systems, agent workflows, and full-stack applications."
         />
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
           {featuredProjects.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
       </section>
 
-      {/* GitHub Activity Summary */}
+      {/* GitHub Summary Strip */}
       <section className="max-w-[1100px] mx-auto px-6 pb-20">
-        <SectionHeading
-          eyebrow="Activity"
-          title="GitHub metrics"
-          description="Contributions and open-source updates tracked live."
-        />
         <GithubSummaryStrip />
       </section>
 
       {/* Skills */}
       <section className="max-w-[1100px] mx-auto px-6 pb-20">
         <SectionHeading
-          eyebrow="Expertise"
           title="Tech stack"
           description="Tools and technologies I use to build production systems."
         />
@@ -52,16 +46,27 @@ export default async function HomePage() {
       <section className="max-w-[1100px] mx-auto px-6 pb-20">
         <div className="rounded-xl overflow-hidden border border-border-default">
           {/* macOS-style header */}
-          <div className="bg-[#1a1a1a] px-4 py-3 flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-            <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-            <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-            <span className="ml-3 text-xs text-gray-500 font-mono">
-              portfolio — bash
-            </span>
+          <div className="bg-[#1a1a1a] px-4 py-3 flex items-center justify-between select-none">
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
+              <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
+              <div className="w-3 h-3 rounded-full bg-[#28c840]" />
+              <span className="ml-3 text-xs text-gray-500 font-mono">
+                portfolio — bash
+              </span>
+            </div>
+            <Link
+              href="/terminal"
+              className="text-xs font-mono text-[#a78bfa] hover:underline"
+            >
+              Launch interactive terminal ↗
+            </Link>
           </div>
           {/* Terminal body */}
-          <div className="bg-terminal-bg p-5 font-mono text-sm min-h-[160px]">
+          <Link
+            href="/terminal"
+            className="block bg-terminal-bg p-5 font-mono text-sm min-h-[160px] hover:bg-[#111111] transition-colors cursor-pointer group"
+          >
             <p className="text-gray-500 mb-4">
               Welcome to saurabh.dev. Type{" "}
               <span className="text-terminal-text">`help`</span> to start.
@@ -86,13 +91,18 @@ export default async function HomePage() {
                 AI/ML and Full-Stack opportunities
               </p>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="text-terminal-green">~</span>
-              <span className="text-terminal-purple">portfolio</span>
-              <span className="text-gray-500">$</span>
-              <span className="w-2 h-4 bg-terminal-text inline-block animate-cursor-blink ml-1" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-terminal-green">~</span>
+                <span className="text-terminal-purple">portfolio</span>
+                <span className="text-gray-500">$</span>
+                <span className="w-2 h-4 bg-terminal-text inline-block animate-cursor-blink ml-1" />
+              </div>
+              <span className="text-xs text-gray-600 group-hover:text-[#a78bfa] transition-colors font-sans">
+                Click anywhere to start typing...
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 

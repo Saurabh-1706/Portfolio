@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getProjects } from "@/lib/api";
+import AdminActions from "@/components/admin/AdminActions";
 
 export const metadata: Metadata = {
   title: "Dashboard — Admin",
@@ -38,8 +39,8 @@ export default async function DashboardPage() {
     },
     {
       label: "Blog Posts",
-      value: 0,
-      sub: "Phase 2 — coming soon",
+      value: 1, // Seeding added 1
+      sub: "Phase 4 — draft available",
       color: "#60a5fa",
       href: "/admin/blog",
     },
@@ -53,7 +54,7 @@ export default async function DashboardPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-medium text-white mb-1">Dashboard</h1>
         <p className="text-sm text-gray-500">
-          Portfolio CMS — Phase 1 Foundation
+          Portfolio CMS — Phase 3 Terminal & Sync Complete
         </p>
       </div>
 
@@ -114,6 +115,14 @@ export default async function DashboardPage() {
         </div>
       </div>
 
+      {/* System actions */}
+      <div className="mb-10">
+        <h2 className="text-xs font-medium uppercase tracking-widest text-gray-600 mb-4">
+          System Actions
+        </h2>
+        <AdminActions />
+      </div>
+
       {/* Recent projects */}
       <div>
         <h2 className="text-xs font-medium uppercase tracking-widest text-gray-600 mb-4">
@@ -146,7 +155,7 @@ export default async function DashboardPage() {
                 </span>
                 {project.featured && (
                   <span className="text-xs text-[#a78bfa] bg-[#2e1065] px-2 py-0.5 rounded-md flex-shrink-0">
-                    featured
+                     featured
                   </span>
                 )}
               </div>
@@ -185,8 +194,8 @@ export default async function DashboardPage() {
         <div className="space-y-2">
           {[
             { phase: "Phase 1", label: "Foundation + CMS", done: true },
-            { phase: "Phase 2", label: "AI Chatbot (RAG)", done: false },
-            { phase: "Phase 3", label: "Terminal + GitHub", done: false },
+            { phase: "Phase 2", label: "AI Chatbot (RAG)", done: true },
+            { phase: "Phase 3", label: "Terminal + GitHub", done: true },
             { phase: "Phase 4", label: "Playground + Polish", done: false },
           ].map((phase) => (
             <div
@@ -223,3 +232,4 @@ export default async function DashboardPage() {
     </div>
   );
 }
+

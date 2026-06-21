@@ -1,4 +1,4 @@
-import type { Project, GithubStats, ContributionDayItem } from "./types";
+import type { Project, GithubStats, ContributionDayItem, Skill, ResumeEntry, Blog } from "./types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -250,3 +250,112 @@ export async function getGithubStats(): Promise<GithubStats> {
 
   return fetchWithFallback<GithubStats>(url, fallback);
 }
+
+// ──────────────────────────────────────────────
+// Additional Mock Data
+// ──────────────────────────────────────────────
+
+const MOCK_SKILLS: Skill[] = [
+  { id: "1", name: "LangChain", category: "AI / ML", proficiency: 5, icon_url: null, sort_order: 0 },
+  { id: "2", name: "LangGraph", category: "AI / ML", proficiency: 5, icon_url: null, sort_order: 1 },
+  { id: "3", name: "OpenAI API", category: "AI / ML", proficiency: 5, icon_url: null, sort_order: 2 },
+  { id: "4", name: "ChromaDB", category: "AI / ML", proficiency: 4, icon_url: null, sort_order: 3 },
+  { id: "5", name: "RAG Pipelines", category: "AI / ML", proficiency: 5, icon_url: null, sort_order: 4 },
+  { id: "6", name: "Prompt Engineering", category: "AI / ML", proficiency: 4, icon_url: null, sort_order: 5 },
+  
+  { id: "7", name: "FastAPI", category: "Backend", proficiency: 5, icon_url: null, sort_order: 0 },
+  { id: "8", name: "Python", category: "Backend", proficiency: 5, icon_url: null, sort_order: 1 },
+  { id: "9", name: "PostgreSQL", category: "Backend", proficiency: 5, icon_url: null, sort_order: 2 },
+  { id: "10", name: "Redis", category: "Backend", proficiency: 4, icon_url: null, sort_order: 3 },
+  { id: "11", name: "SQLAlchemy", category: "Backend", proficiency: 4, icon_url: null, sort_order: 4 },
+  { id: "12", name: "REST APIs", category: "Backend", proficiency: 5, icon_url: null, sort_order: 5 },
+
+  { id: "13", name: "Next.js", category: "Frontend", proficiency: 4, icon_url: null, sort_order: 0 },
+  { id: "14", name: "React", category: "Frontend", proficiency: 4, icon_url: null, sort_order: 1 },
+  { id: "15", name: "TypeScript", category: "Frontend", proficiency: 4, icon_url: null, sort_order: 2 },
+  { id: "16", name: "Tailwind CSS", category: "Frontend", proficiency: 5, icon_url: null, sort_order: 3 },
+  { id: "17", name: "Framer Motion", category: "Frontend", proficiency: 3, icon_url: null, sort_order: 4 },
+
+  { id: "18", name: "Docker", category: "Cloud / DevOps", proficiency: 4, icon_url: null, sort_order: 0 },
+  { id: "19", name: "GitHub Actions", category: "Cloud / DevOps", proficiency: 4, icon_url: null, sort_order: 1 },
+  { id: "20", name: "Vercel", category: "Cloud / DevOps", proficiency: 4, icon_url: null, sort_order: 2 },
+  { id: "21", name: "Railway", category: "Cloud / DevOps", proficiency: 4, icon_url: null, sort_order: 3 },
+  { id: "22", name: "AWS", category: "Cloud / DevOps", proficiency: 3, icon_url: null, sort_order: 4 },
+  { id: "23", name: "CI/CD", category: "Cloud / DevOps", proficiency: 4, icon_url: null, sort_order: 5 }
+];
+
+const MOCK_RESUME: ResumeEntry[] = [
+  {
+    id: "1",
+    entry_type: "work",
+    title: "Senior Full-Stack Engineer",
+    organization: "Innovate AI Tech",
+    location: "Remote",
+    start_date: "2024-01-01",
+    end_date: null,
+    description: "Led development of core SaaS dashboards using Next.js and FastAPI. Implemented vector database RAG pipelines that reduced customer support response times by 40%. Optimized SQL queries and database indexes, accelerating load times by 25%.",
+    sort_order: 0,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: "2",
+    entry_type: "work",
+    title: "Software Engineer",
+    organization: "WebSolutions Corp",
+    location: "New York, NY",
+    start_date: "2022-06-15",
+    end_date: "2023-12-31",
+    description: "Built and maintained responsive react components. Developed REST APIs in Django. Collaborated with UI/UX designers to implement clean layouts. Managed CI/CD pipelines via GitHub Actions.",
+    sort_order: 1,
+    created_at: new Date().toISOString()
+  },
+  {
+    id: "3",
+    entry_type: "education",
+    title: "Bachelor of Technology in Computer Science",
+    organization: "Technical University",
+    location: "Boston, MA",
+    start_date: "2018-08-01",
+    end_date: "2022-05-30",
+    description: "Graduated with Honors. Specialization in Software Engineering and Database Management Systems.",
+    sort_order: 2,
+    created_at: new Date().toISOString()
+  }
+];
+
+const MOCK_BLOGS: Blog[] = [
+  {
+    id: "1",
+    title: "Building a Multi-Agent DevOps Copilot with LangGraph",
+    slug: "multi-agent-devops-copilot-langgraph",
+    summary: "A deep dive into orchestration, agent state coordination, and implementing reliable recovery loops in autonomous AI systems.",
+    content: "Autonomous AI agents are transforming DevOps...",
+    tags: ["LangGraph", "AI", "DevOps", "FastAPI"],
+    cover_image: null,
+    published: true,
+    views: 142,
+    read_time: 5,
+    created_at: "2026-06-19T18:00:00Z",
+    updated_at: "2026-06-19T18:00:00Z"
+  }
+];
+
+// ──────────────────────────────────────────────
+// API Fetching Functions
+// ──────────────────────────────────────────────
+
+export async function getSkills(): Promise<Skill[]> {
+  const url = `${API_BASE}/api/skills`;
+  return fetchWithFallback<Skill[]>(url, MOCK_SKILLS);
+}
+
+export async function getResume(): Promise<ResumeEntry[]> {
+  const url = `${API_BASE}/api/resume`;
+  return fetchWithFallback<ResumeEntry[]>(url, MOCK_RESUME);
+}
+
+export async function getBlogs(): Promise<Blog[]> {
+  const url = `${API_BASE}/api/blogs`;
+  return fetchWithFallback<Blog[]>(url, MOCK_BLOGS);
+}
+

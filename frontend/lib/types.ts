@@ -99,3 +99,17 @@ export interface GithubStats {
   last_synced_at: string;
 }
 
+export interface ResumeEntry {
+  id: string;
+  entry_type: string;
+  title: string;
+  organization: string | null;
+  location: string | null;
+  start_date: string | null;
+  end_date: string | null;
+  description: string | null;
+  sort_order: number;
+  created_at: string;
+}
+
+
