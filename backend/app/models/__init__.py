@@ -10,6 +10,10 @@ from app.models.resume_entry import ResumeEntry
 from app.models.profile import Profile
 from app.models.chat_log import ChatLog
 
+# GitHub Analytics (Phase 3)
+from app.models.github_repo import RepoStats
+from app.models.github_contribution import ContributionDay
+
 __all__ = [
     "Project",
     "Blog",
@@ -19,4 +23,6 @@ __all__ = [
     "ResumeEntry",
     "Profile",
     "ChatLog",
+    "RepoStats",
+    "ContributionDay",
 ]
