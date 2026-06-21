@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import SectionHeading from "@/components/SectionHeading";
 import SkillsSection from "@/components/SkillsSection";
+import GithubSummaryStrip from "@/components/github/GithubSummaryStrip";
 import { getProjects } from "@/lib/api";
 
 export default async function HomePage() {
@@ -25,6 +26,16 @@ export default async function HomePage() {
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
+      </section>
+
+      {/* GitHub Activity Summary */}
+      <section className="max-w-[1100px] mx-auto px-6 pb-20">
+        <SectionHeading
+          eyebrow="Activity"
+          title="GitHub metrics"
+          description="Contributions and open-source updates tracked live."
+        />
+        <GithubSummaryStrip />
       </section>
 
       {/* Skills */}

@@ -68,3 +68,34 @@ export interface ServiceStatus {
 }
 
 export type ProjectCategory = "AI" | "fullstack" | "cloud" | "ml";
+
+export interface RepoStatItem {
+  name: string;
+  full_name: string;
+  description: string | null;
+  url: string;
+  primary_language: string | null;
+  stars: number;
+  forks: number;
+  pushed_at: string | null;
+}
+
+export interface ContributionDayItem {
+  day: string;
+  commit_count: number;
+  intensity_level: number;
+}
+
+export interface GithubStats {
+  summary: {
+    total_stars: number;
+    total_repos: number;
+    total_commits_12mo: number;
+    current_streak_days: number;
+    top_languages: Array<{ name: string; percent: number }>;
+  };
+  contribution_calendar: ContributionDayItem[];
+  repos: RepoStatItem[];
+  last_synced_at: string;
+}
+

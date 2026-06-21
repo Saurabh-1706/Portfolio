@@ -1,8 +1,4 @@
-/**
- * API client for communicating with the FastAPI backend.
- * Falls back to mock data when the backend is unavailable.
- */
-import type { Project } from "./types";
+import type { Project, GithubStats, ContributionDayItem } from "./types";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -171,4 +167,86 @@ export async function getProject(slug: string): Promise<Project | null> {
   const url = `${API_BASE}/api/projects/${slug}`;
   const fallback = MOCK_PROJECTS.find((p) => p.slug === slug) || null;
   return fetchWithFallback<Project | null>(url, fallback);
+}
+
+const MOCK_GITHUB_STATS: GithubStats = {
+  summary: {
+    total_stars: 298,
+    total_repos: 5,
+    total_commits_12mo: 450,
+    current_streak_days: 7,
+    top_languages: [
+      { name: "TypeScript", percent: 45.5 },
+      { name: "Python", percent: 35.2 },
+      { name: "Go", percent: 12.0 },
+      { name: "CSS", percent: 7.3 }
+    ]
+  },
+  contribution_calendar: [],
+  repos: [
+    {
+      name: "langgraph-incident-copilot",
+      full_name: "saurabh/langgraph-incident-copilot",
+      description: "Multi-agent DevOps assistant that triages incidents, queries runbooks, and drafts resolution steps autonomously.",
+      url: "https://github.com/saurabh/langgraph-incident-copilot",
+      primary_language: "TypeScript",
+      stars: 142,
+      forks: 24,
+      pushed_at: new Date().toISOString()
+    },
+    {
+      name: "rag-pdf-chat",
+      full_name: "saurabh/rag-pdf-chat",
+      description: "Upload any PDF and chat with it using a retrieval-augmented generation pipeline with source citations.",
+      url: "https://github.com/saurabh/rag-pdf-chat",
+      primary_language: "Python",
+      stars: 89,
+      forks: 12,
+      pushed_at: new Date().toISOString()
+    },
+    {
+      name: "portfolio-cms",
+      full_name: "saurabh/portfolio-cms",
+      description: "This very portfolio — a full-stack CMS with AI chatbot, terminal mode, and live project playground.",
+      url: "https://github.com/saurabh/portfolio-cms",
+      primary_language: "TypeScript",
+      stars: 67,
+      forks: 8,
+      pushed_at: new Date().toISOString()
+    }
+  ],
+  last_synced_at: new Date().toISOString()
+};
+
+export async function getGithubStats(): Promise<GithubStats> {
+  const url = `${API_BASE}/api/github/stats`;
+  
+  // Clone mock stats and fill the calendar dynamically
+  const fallback = { ...MOCK_GITHUB_STATS };
+  if (fallback.contribution_calendar.length === 0) {
+    const calendar: ContributionDayItem[] = [];
+    const today = new Date();
+    // Go back 365 days
+    for (let i = 365; i >= 0; i--) {
+      const d = new Date(today);
+      d.setDate(today.getDate() - i);
+      const dayStr = d.toISOString().split("T")[0];
+      // Generate some mock commits
+      const rand = Math.random();
+      let commitCount = 0;
+      let intensityLevel = 0;
+      if (rand > 0.7) {
+        commitCount = Math.floor(Math.random() * 6) + 1;
+        intensityLevel = commitCount > 4 ? 4 : commitCount;
+      }
+      calendar.push({
+        day: dayStr,
+        commit_count: commitCount,
+        intensity_level: intensityLevel
+      });
+    }
+    fallback.contribution_calendar = calendar;
+  }
+
+  return fetchWithFallback<GithubStats>(url, fallback);
 }
