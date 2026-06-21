@@ -4,11 +4,22 @@ import ProjectCard from "@/components/ProjectCard";
 import SectionHeading from "@/components/SectionHeading";
 import SkillsSection from "@/components/SkillsSection";
 import GithubSummaryStrip from "@/components/github/GithubSummaryStrip";
-import { getProjects } from "@/lib/api";
+import { getProjects, getGithubStats } from "@/lib/api";
+
+// ISR — revalidate every 2 hours, matching the GitHub sync interval
+export const revalidate = 7200;
 
 export default async function HomePage() {
   const projects = await getProjects();
   const featuredProjects = projects.filter((p) => p.featured);
+
+  // Fetch GitHub stats for ISR — null-safe so a backend outage never breaks the homepage
+  let githubStats = null;
+  try {
+    githubStats = await getGithubStats();
+  } catch {
+    // Stats unavailable — the strip will render its empty state gracefully
+  }
 
   return (
     <>
@@ -30,7 +41,7 @@ export default async function HomePage() {
 
       {/* GitHub Summary Strip */}
       <section className="max-w-[1100px] mx-auto px-6 pb-20">
-        <GithubSummaryStrip />
+        <GithubSummaryStrip stats={githubStats} />
       </section>
 
       {/* Skills */}

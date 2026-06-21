@@ -284,9 +284,9 @@ async def run_github_sync(db: AsyncSession) -> dict:
 
     # 5. Cache in Redis
     try:
-        redis_client = aioredis.from_url(settings.REDIS_URL)
         payload_str = json.dumps(payload, cls=DateTimeEncoder)
-        await redis_client.set(REDIS_KEY, payload_str, ex=REDIS_TTL_SECONDS)
+        async with aioredis.from_url(settings.REDIS_URL) as redis_client:
+            await redis_client.set(REDIS_KEY, payload_str, ex=REDIS_TTL_SECONDS)
         logger.info("Successfully updated pre-aggregated GitHub dashboard cache in Redis.")
     except Exception as e:
         logger.error(f"Failed to update Redis cache for GitHub stats: {e}")

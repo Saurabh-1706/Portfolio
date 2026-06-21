@@ -1,6 +1,6 @@
 import json
 import logging
-from datetime import date, datetime, timezone
+from datetime import date, datetime
 import redis.asyncio as aioredis
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -25,8 +25,8 @@ async def get_github_stats(db: AsyncSession = Depends(get_db)):
     """
     # 1. Try Redis Cache
     try:
-        redis_client = aioredis.from_url(settings.REDIS_URL)
-        cached_val = await redis_client.get(REDIS_KEY)
+        async with aioredis.from_url(settings.REDIS_URL) as redis_client:
+            cached_val = await redis_client.get(REDIS_KEY)
         if cached_val:
             logger.info("GitHub stats: cache hit")
             return json.loads(cached_val.decode("utf-8"))
@@ -110,6 +110,12 @@ async def get_github_stats(db: AsyncSession = Depends(get_db)):
         for d in calendar_data
     ]
 
+    # Use actual last_synced_at from Postgres rows (not datetime.now — that would be misleading)
+    last_synced = max(
+        (r.last_synced_at for r in featured_repos if r.last_synced_at is not None),
+        default=None
+    )
+
     payload = {
         "summary": {
             "total_stars": total_stars,
@@ -120,7 +126,7 @@ async def get_github_stats(db: AsyncSession = Depends(get_db)):
         },
         "contribution_calendar": frontend_cal,
         "repos": frontend_repos,
-        "last_synced_at": datetime.now(timezone.utc).isoformat()
+        "last_synced_at": last_synced.isoformat() if last_synced else None
     }
     
     return payload

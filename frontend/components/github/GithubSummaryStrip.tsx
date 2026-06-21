@@ -1,27 +1,15 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { useMemo } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { getGithubStats } from "@/lib/api";
 import type { GithubStats } from "@/lib/types";
 
-export default function GithubSummaryStrip() {
-  const [stats, setStats] = useState<GithubStats | null>(null);
-  const [loading, setLoading] = useState(true);
+interface GithubSummaryStripProps {
+  stats: GithubStats | null;
+}
 
-  useEffect(() => {
-    getGithubStats()
-      .then((data) => {
-        setStats(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching GitHub stats: ", err);
-        setLoading(false);
-      });
-  }, []);
-
+export default function GithubSummaryStrip({ stats }: GithubSummaryStripProps) {
   const miniWeeks = useMemo(() => {
     if (!stats || !stats.contribution_calendar || stats.contribution_calendar.length === 0) {
       return [];
@@ -45,16 +33,13 @@ export default function GithubSummaryStrip() {
     return weeks.slice(-12);
   }, [stats]);
 
-  if (loading) {
+  // Empty / error state — graceful fallback, no broken UI
+  if (!stats) {
     return (
-      <div className="w-full bg-bg-secondary border border-border-default rounded-2xl p-6 h-32 flex items-center justify-center animate-pulse">
-        <span className="text-sm text-text-tertiary">Loading GitHub statistics...</span>
+      <div className="w-full bg-bg-secondary border border-border-default rounded-2xl p-6 h-32 flex items-center justify-center">
+        <span className="text-sm text-text-tertiary">GitHub stats unavailable — sync has not run yet.</span>
       </div>
     );
-  }
-
-  if (!stats) {
-    return null;
   }
 
   const { summary } = stats;
