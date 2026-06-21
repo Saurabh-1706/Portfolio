@@ -6,8 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import get_settings
-from app.routes import projects, admin
-from app.routes import admin_chatlogs
+from app.routes import projects, admin, admin_chatlogs, github
 from app.routers import chat
 
 settings = get_settings()
@@ -18,9 +17,21 @@ async def lifespan(app: FastAPI):
     """Application startup and shutdown events."""
     # Startup
     print(f"🚀 {settings.APP_NAME} v{settings.APP_VERSION} starting...")
+    try:
+        from app.github.scheduler import start_scheduler
+        start_scheduler()
+    except Exception as e:
+        print(f"Failed to start GitHub sync scheduler: {e}")
+        
     yield
+    
     # Shutdown
     print(f"👋 {settings.APP_NAME} shutting down...")
+    try:
+        from app.github.scheduler import shutdown_scheduler
+        shutdown_scheduler()
+    except Exception as e:
+        print(f"Failed to stop GitHub sync scheduler: {e}")
 
 
 app = FastAPI(
@@ -44,6 +55,8 @@ app.include_router(projects.router, prefix="/api")
 app.include_router(admin.router, prefix="/api")
 app.include_router(admin_chatlogs.router, prefix="/api")  # Phase 5: /api/admin/chatlogs
 app.include_router(chat.router, prefix="/api")  # Phase 3: /api/chat
+app.include_router(github.router, prefix="/api")  # GitHub stats
+
 
 
 @app.get("/health")
