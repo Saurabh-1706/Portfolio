@@ -65,3 +65,19 @@ docker compose up -d
 
 ## 🔒 Authentication & CMS
 The Admin CMS dashboard is served at `/admin/dashboard` on the frontend, protected by **Clerk**. Once authenticated, you can perform full CRUD operations on projects, blogs, and skills, updating the live site instantly.
+
+---
+
+## ✨ Features & Current Status
+
+- **Phase 1: Foundation (Completed)**
+  - Next.js 16 + Tailwind v4 + Framer Motion frontend
+  - FastAPI + PostgreSQL 16 + Alembic backend
+  - Public project routing and UI components
+- **Phase 2: AI Chatbot (Completed)**
+  - LangChain + LangGraph RAG pipeline with ChromaDB
+  - Streaming UI widget with source citations and feedback
+  - Admin view for chatbot log histories
+- **Phase 3: Terminal + GitHub Integration (Completed)**
+  - Full API-backed terminal console UI at `/terminal`
+  - Automated syncing of GitHub repositories and statistics via Redis cache
