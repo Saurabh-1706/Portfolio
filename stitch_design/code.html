@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Full Stack Developer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface/70 backdrop-blur-xl border border-white/10;
+            }
+            .card-base {
+                @apply bg-surface border border-white/[0.08] rounded-xl overflow-hidden relative;
+            }
+            .card-gradient-border {
+                position: relative;
+            }
+            .card-gradient-border::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                padding: 1px;
+                background: linear-gradient(to right, #a4c9ff, #ddb7ff);
+                -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+                opacity: 0.5;
+                transition: opacity 0.3s ease;
+            }
+            .card-gradient-border:hover::before {
+                opacity: 1;
+            }
+            .glow-on-hover:hover {
+                box-shadow: 0 0 20px rgba(164, 201, 255, 0.15);
+            }
+            .text-gradient {
+                @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+            }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#8b919d",
+                        "tertiary-fixed": "#a2eeff",
+                        "surface-container-low": "#1c1b1d",
+                        "outline-variant": "#414751",
+                        "on-primary-fixed-variant": "#004883",
+                        "on-secondary-fixed": "#2c0051",
+                        "on-primary-fixed": "#001c39",
+                        "on-primary-container": "#003a6b",
+                        "secondary-fixed-dim": "#ddb7ff",
+                        "surface-container-highest": "#353437",
+                        "tertiary-fixed-dim": "#2fd9f4",
+                        "on-surface": "#e5e1e4",
+                        "primary-container": "#60a5fa",
+                        "surface-dim": "#131315",
+                        "tertiary": "#2fd9f4",
+                        "inverse-primary": "#0060ac",
+                        "on-tertiary-container": "#003f48",
+                        "surface-container-lowest": "#0e0e10",
+                        "surface-variant": "#353437",
+                        "on-error": "#690005",
+                        "surface-container-high": "#2a2a2c",
+                        "on-tertiary": "#00363e",
+                        "on-primary": "#00315d",
+                        "surface": "#131315",
+                        "inverse-surface": "#e5e1e4",
+                        "on-background": "#e5e1e4",
+                        "on-tertiary-fixed-variant": "#004e5a",
+                        "error-container": "#93000a",
+                        "secondary-fixed": "#f0dbff",
+                        "surface-tint": "#a4c9ff",
+                        "on-surface-variant": "#c1c7d3",
+                        "primary-fixed-dim": "#a4c9ff",
+                        "background": "#131315",
+                        "on-secondary": "#490080",
+                        "on-secondary-fixed-variant": "#6900b3",
+                        "on-tertiary-fixed": "#001f25",
+                        "primary": "#a4c9ff",
+                        "error": "#ffb4ab",
+                        "secondary-container": "#6f00be",
+                        "on-secondary-container": "#d6a9ff",
+                        "tertiary-container": "#00b2ca",
+                        "surface-container": "#201f22",
+                        "inverse-on-surface": "#313032",
+                        "surface-bright": "#39393b",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#d4e3ff",
+                        "secondary": "#ddb7ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-gap": "160px",
+                        "unit": "8px",
+                        "container-max": "1200px",
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Geist", "sans-serif"],
+                        "label-mono": ["JetBrains Mono", "monospace"],
+                        "headline-md": ["Geist", "sans-serif"],
+                        "body-md": ["Geist", "sans-serif"],
+                        "headline-lg-mobile": ["Geist", "sans-serif"],
+                        "display": ["Geist", "sans-serif"],
+                        "body-lg": ["Geist", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-mono": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen antialiased selection:bg-primary/30">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-surface/70 backdrop-blur-xl border-b border-white/10 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+<div class="font-headline-md text-headline-md font-bold text-on-surface tracking-tighter">
+                ALEX.DEV
+            </div>
+<div class="hidden md:flex gap-8">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-body-md text-body-md" href="#">Work</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors font-body-md text-body-md px-2 py-1 rounded" href="#">Tools</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors font-body-md text-body-md px-2 py-1 rounded" href="#">Blog</a>
+<a class="text-on-surface-variant hover:text-on-surface hover:bg-white/5 transition-colors font-body-md text-body-md px-2 py-1 rounded" href="#">About</a>
+</div>
+<button class="bg-primary text-on-primary-fixed px-6 py-2 rounded-lg font-label-mono text-label-mono font-bold hover:shadow-[0_0_15px_rgba(164,201,255,0.4)] transition-all">
+                Hire Me
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center pt-24 overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-b from-background/10 via-background/50 to-background pointer-events-none"></div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 md:grid-cols-12 gap-gutter items-center">
+<div class="md:col-span-8 flex flex-col gap-6">
+<h1 class="font-display text-display text-on-surface tracking-tighter leading-tight">
+                        AI Full Stack <br/>
+<span class="text-gradient">Developer</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                        Building intelligent web applications powered by AI. Merging deep learning models with scalable full-stack architectures for next-generation digital experiences.
+                    </p>
+<div class="flex flex-wrap gap-2 mt-4">
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">Python</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">FastAPI</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">Next.js</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">React</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">TypeScript</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">Docker</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">OpenAI</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[12px] px-3 py-1 rounded uppercase tracking-wider">LangChain</span>
+</div>
+<div class="flex flex-wrap gap-4 mt-8">
+<button class="bg-primary text-on-primary-fixed px-6 py-3 rounded-lg font-label-mono text-label-mono font-bold hover:shadow-[0_0_15px_rgba(164,201,255,0.4)] transition-all">
+                            View Projects
+                        </button>
+<button class="bg-transparent border border-white/20 text-on-surface hover:bg-white/5 px-6 py-3 rounded-lg font-label-mono text-label-mono transition-all">
+                            Download Resume
+                        </button>
+<button class="bg-transparent text-on-surface-variant hover:text-white px-4 py-3 font-label-mono text-label-mono transition-colors">
+                            Contact Me
+                        </button>
+</div>
+</div>
+<div class="md:col-span-4 hidden md:block">
+<div class="relative w-full aspect-square rounded-2xl overflow-hidden border border-white/10 glow-on-hover transition-shadow duration-500">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 mix-blend-overlay z-10"></div>
+<img class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700" data-alt="A highly professional and cinematic portrait of a modern software developer in a dimly lit, high-tech workspace. The developer is looking slightly off-camera with a focused expression. Cool blue light spills from monitors onto their face, contrasting with deep, moody shadows in the background. The aesthetic is clean, technical, and premium, evoking a sense of expertise in AI and cutting-edge technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDyBZmUxXJQVt48VMwu9wu8_Q51kZspiQrTGbx7vwMDwMq3JK7gFm7Ga7JtfWqYVmhDoGOFlPyWMzGm61-ha8uc9MRhMxldlcQS4c5-XKdRgYuF7XXpf-v641kyreQIX78n52P_ByJtHwyKAeao_5cWd8bhwCylTaFyZkDTMSt78zIg8449gVi8FnDXRR3633LublOZs3XoGgxloeK226FDGOFCMGQQ4CQT1CMvpqAHCyTqHKVrtPA0gBaCTvfJrgeSLbrxEXi2ysK"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Projects -->
+<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Selected Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Deep dive into recent implementations of LLMs, agentic workflows, and scalable systems.</p>
+</div>
+<div class="flex gap-2 bg-surface p-1 rounded-lg border border-white/10">
+<button class="px-4 py-1.5 rounded-md bg-white/10 text-on-surface font-label-mono text-label-mono">All</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono">AI</button>
+<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono">Full Stack</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Project 1 -->
+<div class="card-base card-gradient-border group cursor-pointer h-[500px] flex flex-col">
+<div class="flex-1 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10"></div>
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-80" data-alt="A sleek, dark-mode dashboard interface displaying complex data visualizations, network graphs, and neural network node connections. The UI features glowing blue and purple accents against a deep black background, utilizing minimalist lines and futuristic typography. It represents a high-end AI research tool for analyzing large language model outputs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC97AW2-tM7mFfLT336s8IRdn9WRTgrqS_6E9p6mU9CCQUnB5yKZDR_EpkvC6tzHLOTAs8wI7ryn26eu_0ZlndLBoXSH9ubo4zjyNnkhX4BeLxdYuOQLgPR3KLLGw5JUy1E5R9bK3JkTeyH-A1EDKxoEbuqw9EY5-XxD2LUzx7aNQ1vM-3tZB-40cIJ4ol9yg5BsUPCoIWK0CCsnLCgVrAagb8TqcJwwLWGVDmDefmOINmu-H8Jnbonm7WO0lVajCsDc-ObOss9XSyR"/>
+</div>
+<div class="p-8 relative z-20 bg-surface">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">Nexus RAG Agent</h3>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">An enterprise-grade Retrieval-Augmented Generation system capable of parsing and querying massive document repositories with near-instant semantic search.</p>
+<div class="flex gap-2">
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Python</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Pinecone</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Next.js</span>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="card-base group cursor-pointer h-[500px] flex flex-col hover:border-white/20 transition-colors">
+<div class="flex-1 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10"></div>
+<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-80" data-alt="A minimalist code editor interface shown in a dark theme, displaying sophisticated Python code for an artificial intelligence model. The syntax highlighting uses vibrant, high-contrast colors like neon blue, bright yellow, and soft pink. The overall aesthetic is clean, distraction-free, and highly technical, typical of a professional developer environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdrzefzaSzAQWAWtiJrB6nE5H7k2mGaDD8y88Mk4b-D7Tgxju4VfQyp6-BEjULqGbtBUxt78IpLqhEX_-dtuBA_fWdg9NsgeP5dDQbDO8JC3j_wvvppPizRfv6a0-zSdOBdXBYaELibY7qcrHWCPDcjcCxhepjd6ZA5BkWDmRTWjaaDftMaw982T8f4vuVpbmS-kVVvWPlt2vzJ6SfJZ689_q4DjZibQNEjVLWPPOSEHd0uePjUiZIE_hpBVdrZK3dQFbahCy_s80o"/>
+</div>
+<div class="p-8 relative z-20 bg-surface">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-headline-md text-headline-md text-on-surface">VisionAI Pipeline</h3>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_outward</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Real-time computer vision pipeline utilizing YOLO models and custom inference engines for high-throughput video stream analysis.</p>
+<div class="flex gap-2">
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">OpenCV</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">PyTorch</span>
+<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Docker</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-section-gap pb-12 bg-surface dark:bg-surface border-t border-white/5 max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-gutter transition-opacity duration-300">
+<div>
+<div class="font-headline-md text-headline-md text-on-surface mb-4">
+                ALEX.DEV
+            </div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4">
+                © 2024 Alex Dev. Built with Technical Luxury.
+            </p>
+</div>
+<div class="flex gap-6 md:justify-end items-end">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Github</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">LinkedIn</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Twitter</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors hover:underline" href="#">Terms</a>
+</div>
+</footer>
+</body></html>

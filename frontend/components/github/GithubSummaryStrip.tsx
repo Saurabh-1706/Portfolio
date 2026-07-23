@@ -36,7 +36,7 @@ export default function GithubSummaryStrip({ stats }: GithubSummaryStripProps) {
   // Empty / error state — graceful fallback, no broken UI
   if (!stats) {
     return (
-      <div className="w-full bg-bg-secondary border border-border-default rounded-2xl p-6 h-32 flex items-center justify-center">
+      <div className="w-full card-base p-6 h-32 flex items-center justify-center">
         <span className="text-sm text-text-tertiary">GitHub stats unavailable — sync has not run yet.</span>
       </div>
     );
@@ -49,7 +49,7 @@ export default function GithubSummaryStrip({ stats }: GithubSummaryStripProps) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="w-full bg-bg-secondary border border-border-default rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+      className="w-full card-base p-6 hover:border-white/20 transition-colors"
     >
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
         {/* Left Side: Stats Grid */}
@@ -94,7 +94,7 @@ export default function GithubSummaryStrip({ stats }: GithubSummaryStripProps) {
         {/* Right Side: Mini Heatmap & CTA */}
         <div className="flex items-center gap-6 flex-shrink-0 justify-between sm:justify-start">
           {/* Mini Calendar */}
-          <div className="hidden sm:flex gap-1 select-none border-l border-border-default pl-6">
+          <div className="hidden sm:flex gap-1 select-none border-l border-white/10 pl-6">
             {miniWeeks.map((week, w_idx) => (
               <div key={w_idx} className="flex flex-col gap-1">
                 {week.map((day, d_idx) => {
@@ -105,10 +105,10 @@ export default function GithubSummaryStrip({ stats }: GithubSummaryStripProps) {
                     <div
                       key={day.day}
                       className={`w-2.5 h-2.5 rounded-sm ${
-                        day.intensity_level === 0 ? "bg-bg-tertiary border border-border-default/40" :
-                        day.intensity_level === 1 ? "bg-emerald-950/60" :
-                        day.intensity_level === 2 ? "bg-emerald-800" :
-                        day.intensity_level === 3 ? "bg-emerald-600" : "bg-emerald-400"
+                        day.intensity_level === 0 ? "bg-bg-elevated border border-white/[0.06]" :
+                        day.intensity_level === 1 ? "bg-accent/20" :
+                        day.intensity_level === 2 ? "bg-accent/45" :
+                        day.intensity_level === 3 ? "bg-accent/70" : "bg-accent"
                       }`}
                       title={`${day.commit_count} commits on ${day.day}`}
                     />
@@ -120,7 +120,7 @@ export default function GithubSummaryStrip({ stats }: GithubSummaryStripProps) {
 
           {/* Link to full page */}
           <Link href="/github">
-            <span className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline cursor-pointer bg-bg-tertiary border border-border-default hover:bg-bg-secondary px-4 py-2.5 rounded-lg transition-all duration-150">
+            <span className="btn-secondary text-sm inline-flex items-center gap-1.5 cursor-pointer">
               View Activity
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

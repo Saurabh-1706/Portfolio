@@ -16,7 +16,7 @@ settings = get_settings()
 async def lifespan(app: FastAPI):
     """Application startup and shutdown events."""
     # Startup
-    print(f"🚀 {settings.APP_NAME} v{settings.APP_VERSION} starting...")
+    print(f"[START] {settings.APP_NAME} v{settings.APP_VERSION} starting...")
     try:
         from app.github.scheduler import start_scheduler
         start_scheduler()
@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
     yield
     
     # Shutdown
-    print(f"👋 {settings.APP_NAME} shutting down...")
+    print(f"[STOP] {settings.APP_NAME} shutting down...")
     try:
         from app.github.scheduler import shutdown_scheduler
         shutdown_scheduler()

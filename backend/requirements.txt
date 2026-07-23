@@ -21,11 +21,11 @@ httpx==0.27.2
 # AI / ML (Phase 2 — ingestion + RAG pipeline)
 langchain==0.3.25
 langchain-openai==0.3.19
-langchain-chroma==0.2.3
+langchain-chroma
 langchain-community==0.3.24
 langchain-text-splitters==0.3.8
 langgraph==0.4.8
-chromadb==1.0.0
+chromadb>=1.0.0
 openai==1.86.0
 
 # Cloudinary (Phase 2)
@@ -37,4 +37,5 @@ openai==1.86.0
 # Utilities
 python-dotenv==1.0.1
 apscheduler==3.10.4
+python-dateutil==2.9.0
 

@@ -280,10 +280,17 @@ export default function TerminalConsole() {
             <div className="space-y-1 text-gray-300 mt-2 font-mono text-xs md:text-sm">
               <p>
                 📧 Email:{" "}
-                <a href="mailto:saurabh@example.com" className="text-terminal-purple hover:underline">
-                  saurabh@example.com
+                <a href="mailto:saurabhmojad2173@gmail.com" className="text-terminal-purple hover:underline">
+                  saurabhmojad2173@gmail.com
                 </a>
               </p>
+              <p>
+                📞 Phone:{" "}
+                <a href="tel:+918805289118" className="text-terminal-purple hover:underline">
+                  +91 88052 89118
+                </a>
+              </p>
+              <p>📍 Location: Nashik, Maharashtra, India</p>
               <p>
                 🐙 GitHub:{" "}
                 <a
@@ -298,12 +305,12 @@ export default function TerminalConsole() {
               <p>
                 💼 LinkedIn:{" "}
                 <a
-                  href="https://linkedin.com/in/saurabh"
+                  href="https://www.linkedin.com/in/saurabh-mojad"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-terminal-purple hover:underline"
                 >
-                  linkedin.com/in/saurabh
+                  linkedin.com/in/saurabh-mojad
                 </a>
               </p>
             </div>
@@ -408,8 +415,8 @@ export default function TerminalConsole() {
                   To proceed with scheduling an interview or making an offer, please email:
                 </p>
                 <p className="text-white font-bold">
-                  <a href="mailto:saurabh@example.com" className="hover:underline">
-                    saurabh@example.com
+                  <a href="mailto:saurabhmojad2173@gmail.com" className="hover:underline">
+                    saurabhmojad2173@gmail.com
                   </a>
                 </p>
                 <p className="text-gray-500">

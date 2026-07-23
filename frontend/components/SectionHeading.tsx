@@ -1,39 +1,24 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 interface SectionHeadingProps {
-  eyebrow?: string;
   title: string;
   description?: string;
+  centered?: boolean;
 }
 
 export default function SectionHeading({
-  eyebrow,
   title,
   description,
+  centered = false,
 }: SectionHeadingProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      className="mb-8"
-    >
-      {eyebrow && (
-        <span className="text-xs font-medium uppercase tracking-widest text-accent mb-2 block">
-          {eyebrow}
-        </span>
-      )}
-      <h2 className="text-3xl md:text-4xl font-medium text-text-primary leading-[1.2]">
+    <div className={`mb-10 ${centered ? "text-center" : ""}`}>
+      <h2 className="text-[clamp(28px,4vw,40px)] font-bold text-text-primary tracking-tight leading-tight mb-3">
         {title}
       </h2>
       {description && (
-        <p className="text-base text-text-secondary mt-2 max-w-xl leading-relaxed">
+        <p className="text-base text-text-secondary leading-relaxed max-w-lg">
           {description}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 }

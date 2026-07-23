@@ -96,21 +96,32 @@ def _extract_sources(metadatas: list[dict]) -> list[str]:
 # ─── nodes ────────────────────────────────────────────────────────────────────
 
 async def retrieve_node(state: ChatState) -> ChatState:
-    """Embed the question and retrieve top-k chunks from ChromaDB."""
+    """Embed the question and retrieve top-k chunks from ChromaDB.
+
+    If ChromaDB is unreachable, returns empty context immediately so the
+    pipeline falls through to the LLM fallback without a long TCP hang.
+    """
     question = state["question"]
-    embeddings_model = _get_embeddings()
-    query_embedding = await embeddings_model.aembed_query(question)
 
-    collection = get_collection()
-    results = collection.query(
-        query_embeddings=[query_embedding],
-        n_results=TOP_K,
-        include=["documents", "metadatas", "distances"],
-    )
+    try:
+        embeddings_model = _get_embeddings()
+        query_embedding = await embeddings_model.aembed_query(question)
 
-    chunks = results["documents"][0] if results["documents"] else []
-    metadatas = results["metadatas"][0] if results["metadatas"] else []
-    distances = results["distances"][0] if results["distances"] else []
+        collection = get_collection()
+        results = collection.query(
+            query_embeddings=[query_embedding],
+            n_results=TOP_K,
+            include=["documents", "metadatas", "distances"],
+        )
+
+        chunks = results["documents"][0] if results["documents"] else []
+        metadatas = results["metadatas"][0] if results["metadatas"] else []
+        distances = results["distances"][0] if results["distances"] else []
+
+    except Exception as e:
+        # ChromaDB is down or unreachable — skip retrieval, go to fallback
+        logger.warning("ChromaDB unavailable — skipping retrieval: %s", e)
+        chunks, metadatas, distances = [], [], []
 
     return {
         **state,
@@ -208,8 +219,12 @@ async def stream_answer(question: str) -> AsyncIterator[str]:
         "sources": [],
     }
 
-    state = await retrieve_node(state)
-    state = await grade_node(state)
+    try:
+        state = await retrieve_node(state)
+        state = await grade_node(state)
+    except Exception as e:
+        logger.warning("RAG pipeline error — falling back to LLM-only mode: %s", e)
+        state = {**state, "chunks": [], "metadatas": [], "distances": [], "relevant": False}
 
     llm = _get_llm(streaming=True)
 
@@ -218,7 +233,8 @@ async def stream_answer(question: str) -> AsyncIterator[str]:
         async for chunk in llm.astream(prompt):
             if chunk.content:
                 yield chunk.content
-        yield f"\n[SOURCES]{[]}"
+        import json
+        yield f"\n[SOURCES]{json.dumps([])}"
         return
 
     context = _build_context(state["chunks"], state["metadatas"])

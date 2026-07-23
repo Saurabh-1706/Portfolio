@@ -24,7 +24,7 @@ export default function AdminActions() {
       const data = await res.json();
       setSyncResult({
         success: true,
-        message: `Successfully synchronized ${data.details?.repo_count || 0} repositories and ${data.details?.contribution_count || 0} contribution days!`,
+        message: `Successfully synchronized ${data.details?.repos_synced ?? 0} repositories and ${data.details?.days_synced ?? 0} contribution days!`,
       });
     } catch (err) {
       console.error(err);

@@ -88,32 +88,42 @@ export default function AboutPage() {
           <p>
             📧{" "}
             <a
-              href="mailto:saurabh@example.com"
+              href="mailto:saurabhmojad2173@gmail.com"
               className="text-accent hover:underline"
             >
-              saurabh@example.com
+              saurabhmojad2173@gmail.com
             </a>
           </p>
           <p>
+            📞{" "}
+            <a
+              href="tel:+918805289118"
+              className="text-accent hover:underline"
+            >
+              +91 88052 89118
+            </a>
+          </p>
+          <p>📍 Nashik, Maharashtra, India</p>
+          <p>
             🐙{" "}
             <a
-              href="https://github.com/saurabh"
+              href="https://github.com/Saurabh-1706"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              github.com/saurabh
+              github.com/Saurabh-1706
             </a>
           </p>
           <p>
             💼{" "}
             <a
-              href="https://linkedin.com/in/saurabh"
+              href="https://www.linkedin.com/in/saurabh-mojad"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:underline"
             >
-              linkedin.com/in/saurabh
+              linkedin.com/in/saurabh-mojad
             </a>
           </p>
         </div>
