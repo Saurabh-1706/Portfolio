@@ -1,8 +1,6 @@
-# AI Portfolio + Headless CMS Monorepo
+# Saurabh Mojad – Minimalist Developer Portfolio
 
-Welcome to the **AI Portfolio & CMS** monorepo—a production-grade developer portfolio and AI playground built with a headless CMS architecture.
-
-This project is structured as a monorepo containing a modern Next.js frontend and a high-performance FastAPI backend.
+Welcome to my personal developer portfolio. This project is a highly-optimized, single-page application built with modern web technologies, focusing on clean aesthetics, subtle animations, and premium typography.
 
 ---
 
@@ -10,10 +8,10 @@ This project is structured as a monorepo containing a modern Next.js frontend an
 
 | Layer | Technology |
 |---|---|
-| **Frontend** | Next.js 16 (App Router), Tailwind CSS v4, Framer Motion, Recharts |
-| **Backend** | FastAPI, Pydantic v2, SQLAlchemy 2.0 (Async), Alembic |
-| **Database & Cache** | PostgreSQL 16, Redis 7, ChromaDB |
-| **Authentication** | Clerk Auth |
+| **Framework** | Next.js 15 (App Router) |
+| **Styling** | Tailwind CSS v4, Custom CSS Animations (`.fade-up`) |
+| **Typography** | Google Fonts (Inter, Sora) |
+| **Icons** | Material Symbols, Inline SVGs |
 
 ---
 
@@ -21,63 +19,47 @@ This project is structured as a monorepo containing a modern Next.js frontend an
 
 ```
 portfolio/
-├── frontend/     # Next.js Application (UI & Admin CMS Panels)
-├── backend/      # FastAPI Server (REST API, Database Models & Core Logic)
-├── docker-compose.yml  # Local services (PostgreSQL, Redis, ChromaDB)
-└── README.md     # Root documentation
+├── frontend/             # Next.js Application
+│   ├── app/              # Page structure & routing
+│   ├── components/       # Reusable UI components (Nav, Footer, etc.)
+│   ├── public/           # Static assets (images, PDF resume, SVGs)
+│   └── globals.css       # Global styles and tailwind config
+└── README.md             # This documentation
 ```
 
 ---
 
 ## 🚀 Getting Started Locally
 
-### 1. Start Database & Services
-Make sure **Docker Desktop** is running, then start the containers:
-```bash
-docker compose up -d
-```
-
-### 2. Set Up the Backend
-1. Initialize the virtual environment and install dependencies:
-   ```bash
-   cd backend
-   python -m venv .venv
-   .venv\Scripts\pip install -r requirements.txt
-   ```
-2. Run database migrations:
-   ```bash
-   .venv\Scripts\alembic revision --autogenerate -m "init tables"
-   .venv\Scripts\alembic upgrade head
-   ```
-3. Start the API server:
-   ```bash
-   .venv\Scripts\uvicorn app.main:app --reload
-   ```
-
-### 3. Set Up the Frontend
-1. Start the development server (make sure you've configured your `.env.local` keys via `clerk env pull` first):
+1. **Navigate to the frontend directory:**
    ```bash
    cd frontend
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+   ```bash
    npm run dev
    ```
 
----
-
-## 🔒 Authentication & CMS
-The Admin CMS dashboard is served at `/admin/dashboard` on the frontend, protected by **Clerk**. Once authenticated, you can perform full CRUD operations on projects, blogs, and skills, updating the live site instantly.
+4. **View the site:**
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## ✨ Features & Current Status
+## ✨ Features
 
-- **Phase 1: Foundation (Completed)**
-  - Next.js 16 + Tailwind v4 + Framer Motion frontend
-  - FastAPI + PostgreSQL 16 + Alembic backend
-  - Public project routing and UI components
-- **Phase 2: AI Chatbot (Completed)**
-  - LangChain + LangGraph RAG pipeline with ChromaDB
-  - Streaming UI widget with source citations and feedback
-  - Admin view for chatbot log histories
-- **Phase 3: Terminal + GitHub Integration (Completed)**
-  - Full API-backed terminal console UI at `/terminal`
-  - Automated syncing of GitHub repositories and statistics via Redis cache
+- **Single Page Architecture**: Smooth scroll navigation between Hero, About, Skills, Portfolio, and Contact sections.
+- **Bento Grid Layout**: A modern, visually engaging layout for showcasing technical capabilities.
+- **Dark Mode Contact & Footer**: Sleek, high-contrast CTA and footer sections with original brand colored SVGs.
+- **Scroll Animations**: Custom intersection observer logic smoothly fades elements into view as the user scrolls.
+
+---
+
+## 📄 License
+
+© 2026 Saurabh Mojad. All rights reserved.

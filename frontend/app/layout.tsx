@@ -1,84 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
-import { ClerkProvider } from "@clerk/nextjs";
 import PublicShell from "@/components/PublicShell";
-import { ChatLauncher } from "@/components/chatbot/ChatLauncher";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
 export const metadata: Metadata = {
-  title: {
-    default: "Saurabh — Full-Stack AI Engineer",
-    template: "%s | Saurabh",
-  },
-  description:
-    "AI-powered developer portfolio. Building RAG pipelines, multi-agent workflows, and production infrastructure. Explore projects, read technical blogs, and chat with my AI assistant.",
-  keywords: [
-    "AI Engineer",
-    "Full-Stack Developer",
-    "LangChain",
-    "RAG",
-    "FastAPI",
-    "Next.js",
-    "Portfolio",
-  ],
-  authors: [{ name: "Saurabh" }],
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    title: "Saurabh — Full-Stack AI Engineer",
-    description:
-      "AI-powered developer portfolio with RAG chatbot, live project demos, and technical writing.",
-    siteName: "saurabh.dev",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Saurabh — Full-Stack AI Engineer",
-    description:
-      "AI-powered developer portfolio with RAG chatbot, live project demos, and technical writing.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: "Saurabh Mojad — Full Stack AI Engineer",
+  description: "Portfolio of Saurabh Mojad, building intelligent web applications with modern web technologies and AI.",
 };
 
-/**
- * Root layout — ClerkProvider wraps everything.
- * PublicShell conditionally renders Navigation + Footer
- * only for non-admin routes (admin uses its own sidebar).
- */
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
       <html
-        lang="en"
-        className={`${geistSans.variable} ${geistMono.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
-      >
-        <body className="min-h-full flex flex-col bg-bg-primary">
-          <PublicShell>{children}</PublicShell>
-          <ChatLauncher />
-        </body>
-      </html>
-    </ClerkProvider>
+      lang="en"
+      className="scroll-smooth antialiased overflow-x-hidden"
+    >
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+      </head>
+      <body className="bg-surface-container-lowest text-on-surface font-body-md min-h-full flex flex-col">
+        <PublicShell>{children}</PublicShell>
+      </body>
+    </html>
   );
 }
