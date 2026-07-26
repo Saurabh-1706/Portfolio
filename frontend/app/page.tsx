@@ -66,7 +66,7 @@ export default function HomePage() {
             </div>
           </div>
           {/* Right Asymmetric Cluster */}
-          <div className="relative min-h-[500px] fade-up">
+          <div className="relative min-h-[620px] md:min-h-[500px] fade-up mt-8 md:mt-0">
             {/* Stat Card */}
             <div className="absolute top-0 right-0 w-48 bg-primary-container text-on-primary p-6 rounded-[16px] z-10 shadow-xl">
               <div className="font-headline-md text-headline-md font-bold mb-2">100%</div>
@@ -84,7 +84,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Feature Bullets */}
-            <div className="absolute bottom-0 left-0 right-0 flex gap-4">
+            <div className="absolute bottom-0 left-0 right-0 flex flex-col md:flex-row gap-4 z-20">
               <div className="flex-1 bg-surface-muted border border-border-hairline rounded-[16px] p-6 flex items-start gap-4">
                 <div className="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center shrink-0">
                   <span className="material-symbols-outlined text-sm">code</span>
