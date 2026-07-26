@@ -197,54 +197,89 @@
 </div>
 </section>
 <!-- Featured Projects -->
-<section class="py-section-gap max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-<div>
-<h2 class="font-headline-lg text-headline-lg text-on-surface mb-2">Selected Works</h2>
-<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Deep dive into recent implementations of LLMs, agentic workflows, and scalable systems.</p>
+<section class="py-[120px] bg-[#F9F9F9]" id="work">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<!-- Header -->
+<div class="mb-12 relative fade-up">
+<div class="flex items-center gap-4 mb-4">
+<div class="w-[2px] h-[48px] bg-[#0B0C0C]"></div>
+<div class="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">WORK</div>
 </div>
-<div class="flex gap-2 bg-surface p-1 rounded-lg border border-white/10">
-<button class="px-4 py-1.5 rounded-md bg-white/10 text-on-surface font-label-mono text-label-mono">All</button>
-<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono">AI</button>
-<button class="px-4 py-1.5 rounded-md text-on-surface-variant hover:text-on-surface font-label-mono text-label-mono">Full Stack</button>
+<h2 class="font-['Sora'] text-[48px] font-semibold tracking-[-0.03em] text-[#0B0C0C] mb-4">Featured Projects</h2>
+<p class="font-['Inter'] text-[18px] text-[#444747] max-w-[480px]">
+                A selection of things I have built and shipped.
+            </p>
+</div>
+<!-- Project Cards List -->
+<div class="flex flex-col gap-[48px]">
+<!-- Card 1: IntelliTrack (Image Right) -->
+<div class="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up">
+<div class="flex-1 order-2 md:order-1">
+<span class="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · Full Stack · Developer Tools</span>
+<h3 class="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">IntelliTrack</h3>
+<p class="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
+                        AI-powered GitHub issue intelligence platform — semantic duplicate detection, GPT-4o risk scoring, automated triage, and downloadable PDF reports for any public repository.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Next.js</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">MongoDB</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OpenAI API</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">ChromaDB</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OAuth2</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
 </div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<!-- Project 1 -->
-<div class="card-base card-gradient-border group cursor-pointer h-[500px] flex flex-col">
-<div class="flex-1 overflow-hidden relative">
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10"></div>
-<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-80" data-alt="A sleek, dark-mode dashboard interface displaying complex data visualizations, network graphs, and neural network node connections. The UI features glowing blue and purple accents against a deep black background, utilizing minimalist lines and futuristic typography. It represents a high-end AI research tool for analyzing large language model outputs." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC97AW2-tM7mFfLT336s8IRdn9WRTgrqS_6E9p6mU9CCQUnB5yKZDR_EpkvC6tzHLOTAs8wI7ryn26eu_0ZlndLBoXSH9ubo4zjyNnkhX4BeLxdYuOQLgPR3KLLGw5JUy1E5R9bK3JkTeyH-A1EDKxoEbuqw9EY5-XxD2LUzx7aNQ1vM-3tZB-40cIJ4ol9yg5BsUPCoIWK0CCsnLCgVrAagb8TqcJwwLWGVDmDefmOINmu-H8Jnbonm7WO0lVajCsDc-ObOss9XSyR"/>
-</div>
-<div class="p-8 relative z-20 bg-surface">
-<div class="flex justify-between items-start mb-4">
-<h3 class="font-headline-md text-headline-md text-on-surface">Nexus RAG Agent</h3>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_outward</span>
-</div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">An enterprise-grade Retrieval-Augmented Generation system capable of parsing and querying massive document repositories with near-instant semantic search.</p>
-<div class="flex gap-2">
-<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Python</span>
-<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Pinecone</span>
-<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Next.js</span>
+<div class="flex-1 order-1 md:order-2 w-full">
+<div class="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
+<img alt="IntelliTrack Dashboard" class="w-full h-auto inner-image block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAruJyqQTSpbeACVJfv--nlTIkX_IKFIBVixdbDhbR50TKc2aoodJW-PguVsCAvyy6nGCEIV4aERd5zISWAYXiQlNNxRUVpoSXZo5jSRqApKWZRbwa3jdiO5ysYdTn2uwZkKN4US7LP4ZEpkxqsBu5e9nD69dA19A_i88h1hXUje4nUiQrSmbZsfSirQpnqqcmAoGSRLFegRkifWmWyJqO83-UZmpeQvRhthe09ARdo9LBe-y3hs9YigUgYvdMOVfD6DEvlK-W05oND"/>
 </div>
 </div>
 </div>
-<!-- Project 2 -->
-<div class="card-base group cursor-pointer h-[500px] flex flex-col hover:border-white/20 transition-colors">
-<div class="flex-1 overflow-hidden relative">
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent z-10"></div>
-<img class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700 opacity-80" data-alt="A minimalist code editor interface shown in a dark theme, displaying sophisticated Python code for an artificial intelligence model. The syntax highlighting uses vibrant, high-contrast colors like neon blue, bright yellow, and soft pink. The overall aesthetic is clean, distraction-free, and highly technical, typical of a professional developer environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdrzefzaSzAQWAWtiJrB6nE5H7k2mGaDD8y88Mk4b-D7Tgxju4VfQyp6-BEjULqGbtBUxt78IpLqhEX_-dtuBA_fWdg9NsgeP5dDQbDO8JC3j_wvvppPizRfv6a0-zSdOBdXBYaELibY7qcrHWCPDcjcCxhepjd6ZA5BkWDmRTWjaaDftMaw982T8f4vuVpbmS-kVVvWPlt2vzJ6SfJZ689_q4DjZibQNEjVLWPPOSEHd0uePjUiZIE_hpBVdrZK3dQFbahCy_s80o"/>
+<!-- Card 2: FitSaaS (Image Left) -->
+<div class="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up">
+<div class="flex-1 w-full">
+<div class="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
+<img alt="FitSaaS Dashboard" class="w-full h-auto inner-image block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2P7Dn2IwM5O-eCGvyAs0naW2noqer1aj2vhpDL3k6TNVAqTHAxpS6OS2AIc9ekpqpTfSAkL0FgAT4nmUQ1adBMdkrwVtNgVkVNKdMY4XXPCfHj75wTzHRUm5ZFbsoeBycB45lY1vbP6WqrTc86jzPehuL__WsRCpYBRkPzZ6Xoxm7pnjevh78B8LtKrSVq54BcDaHyOh8XMdenYPN4s_QxzUJ656GDD39n5pD2uJQGjFgzoL3qg5Hp4WAsJHMhNq4-77eTTzspmlY"/>
 </div>
-<div class="p-8 relative z-20 bg-surface">
-<div class="flex justify-between items-start mb-4">
-<h3 class="font-headline-md text-headline-md text-on-surface">VisionAI Pipeline</h3>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">arrow_outward</span>
 </div>
-<p class="font-body-md text-body-md text-on-surface-variant mb-6 line-clamp-2">Real-time computer vision pipeline utilizing YOLO models and custom inference engines for high-throughput video stream analysis.</p>
-<div class="flex gap-2">
-<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">OpenCV</span>
-<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">PyTorch</span>
-<span class="bg-[#27272A] text-on-surface font-label-mono text-[10px] px-2 py-1 rounded uppercase">Docker</span>
+<div class="flex-1">
+<span class="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">SaaS · Multi-tenant · Full Stack</span>
+<h3 class="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">FitSaaS</h3>
+<p class="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
+                        Multi-tenant gym management SaaS with role-based access control, member management, attendance tracking, and branded dashboards for each gym — built for scale.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Next.js</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">MongoDB</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Tailwind CSS</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">RBAC</span>
+</div>
+</div>
+</div>
+<!-- Card 3: RAG Knowledge Assistant (Image Right) -->
+<div class="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up">
+<div class="flex-1 order-2 md:order-1">
+<span class="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · LLM · Python</span>
+<h3 class="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">RAG Knowledge Assistant</h3>
+<p class="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
+                        Modular RAG pipeline exploring 6 retrieval strategies — hybrid search, Cohere reranking, multi-query RRF, and semantic chunking — with source citations and configurable retrieval modes.
+                    </p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Python</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">LangChain</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">ChromaDB</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OpenAI API</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
+<span class="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">SentenceTransformers</span>
+</div>
+</div>
+<div class="flex-1 order-1 md:order-2 w-full">
+<div class="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
+<img alt="RAG Knowledge Assistant Interface" class="w-full h-auto inner-image block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Cr-CmEZUMAtDzZrQlArxDqyLNfVQ3K73429CjU-HI0idsqI1YxSPA4ysc1Jl2Rq3vg8281vIqD70X3AwoMvTlVMnjHbF7a91gh3Jal4ICaY4669OHYYOc_4iYGTnagkct5HmTfKbUqwwNnHXjmgecT6jDcEmuoRPJkmqHcMwwTAp7UvinMherUPUvGSoPr4rRSkuSbuFkjFzGjrcwwMtbBcplDmmrK3lxZ6s6SDraDHd4m9iohJTXlgDtLT6oXDYFJalT3lyQ6Ql"/>
+</div>
 </div>
 </div>
 </div>
