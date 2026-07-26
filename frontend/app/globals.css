@@ -118,16 +118,40 @@ html {
 /* Animations provided by Stitch code.html */
 .fade-up {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(24px);
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
 }
 .fade-up.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+.hero-fade-up {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+}
+.hero-fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .hover-zoom-img {
-  transition: transform 0.5s ease;
+  transition: transform 300ms ease;
 }
 .group:hover .hover-zoom-img {
-  transform: scale(1.05);
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up, .hero-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }

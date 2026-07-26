@@ -1,23 +1,43 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Navigation() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on initial load
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-surface/80 backdrop-blur-md dark:bg-surface/80 text-primary dark:text-on-primary-fixed font-body-md text-body-md fixed top-0 w-full border-b border-border-hairline dark:border-outline z-50">
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-200 ease-in-out font-body-md text-body-md text-primary ${
+      isScrolled 
+        ? "bg-[#F9F9F9]/85 backdrop-blur-[12px] border-b border-[#E5E5E5]" 
+        : "bg-transparent border-b border-transparent"
+    }`}>
       <div className="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         {/* Brand */}
-        <Link href="/" className="font-headline-md text-headline-md font-bold text-primary dark:text-on-primary-fixed flex items-center gap-2">
+        <Link href="/" className="font-headline-md text-headline-md font-bold text-primary flex items-center gap-2">
           Saurabh Mojad
         </Link>
         
         {/* Links (Web) */}
         <div className="hidden md:flex items-center gap-8">
-          <Link href="#about" className="text-primary dark:text-on-primary-fixed font-semibold hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200">
+          <Link href="#about" className="text-primary font-semibold hover:text-primary transition-colors duration-200">
             About Me
           </Link>
-          <Link href="#skills" className="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200">
+          <Link href="#skills" className="text-secondary hover:text-primary transition-colors duration-200">
             Skills
           </Link>
-          <Link href="#portfolio" className="text-secondary dark:text-on-secondary-fixed-variant hover:text-primary dark:hover:text-on-primary-fixed transition-colors duration-200">
+          <Link href="#work" className="text-secondary hover:text-primary transition-colors duration-200">
             Projects
           </Link>
         </div>

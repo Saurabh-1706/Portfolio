@@ -1,5 +1,6 @@
 
 import FadeUpObserver from "@/components/FadeUpObserver";
+import CountUp from "@/components/CountUp";
 
 export const revalidate = 7200;
 
@@ -15,20 +16,20 @@ export default function HomePage() {
       {/* 2. Hero */}
       <section className="min-h-screen pt-20 flex flex-col md:flex-row relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pb-section-gap">
         {/* Left Column */}
-        <div className="flex-1 flex flex-col justify-center relative py-12 md:py-0 fade-up z-10">
+        <div className="flex-1 flex flex-col justify-center relative py-12 md:py-0 z-10">
           <div className="max-w-xl">
             {/* Stats */}
-            <div className="flex gap-8 mb-8 text-secondary font-label-caps text-label-caps uppercase">
+            <div className="flex gap-8 mb-8 text-secondary font-label-caps text-label-caps uppercase hero-fade-up" style={{ transitionDelay: '0ms' }}>
               <div><span className="text-primary font-bold block text-lg">+5</span> Production Projects</div>
               <div><span className="text-primary font-bold block text-lg">+4</span> AI Applications</div>
             </div>
             {/* Headline */}
-            <h1 className="font-display text-display text-primary mb-6">Hello</h1>
-            <p className="font-headline-md text-headline-md text-secondary mb-12 max-w-md">
+            <h1 className="font-display text-display text-primary mb-6 hero-fade-up" style={{ transitionDelay: '100ms' }}>Hello</h1>
+            <p className="font-headline-md text-headline-md text-secondary mb-12 max-w-md hero-fade-up" style={{ transitionDelay: '200ms' }}>
               — I'm Saurabh, building intelligent web applications with AI.
             </p>
             {/* Footer elements */}
-            <div className="flex items-center gap-12 mt-auto">
+            <div className="flex items-center gap-12 mt-auto hero-fade-up" style={{ transitionDelay: '400ms' }}>
               <div className="text-secondary font-label-caps text-label-caps uppercase flex items-center gap-2">
                 Scroll down 
                 <span className="material-symbols-outlined text-sm animate-bounce">arrow_downward</span>
@@ -37,7 +38,7 @@ export default function HomePage() {
           </div>
         </div>
         {/* Right Column (Portrait) */}
-        <div className="flex-1 relative min-h-[50vh] md:min-h-screen -mx-margin-mobile md:mx-0 fade-up">
+        <div className="flex-1 relative min-h-[50vh] md:min-h-screen -mx-margin-mobile md:mx-0 hero-fade-up" style={{ transitionDelay: '500ms' }}>
           <img alt="Saurabh Portrait" className="absolute inset-0 w-full h-full object-cover object-center md:rounded-l-3xl grayscale" src="/saurabh-profile.jpg" />
         </div>
       </section>
@@ -127,7 +128,7 @@ export default function HomePage() {
           {/* Grid */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-[24px]">
             {/* Frontend (col-span-2) */}
-            <div className="md:col-span-2 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6">
+            <div className="md:col-span-2 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6 fade-up" style={{ transitionDelay: '0ms' }}>
               <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">Frontend</div>
               <div className="flex flex-wrap gap-2">
                 <div className="skill-pill flex items-center gap-[6px] bg-[#FFFFFF] border border-[#E5E5E5] rounded-full px-[14px] py-[6px] pl-[10px] font-['Inter'] text-[14px] text-[#1a1c1c] cursor-default">
@@ -148,7 +149,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Backend (col-span-1) */}
-            <div className="md:col-span-1 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6">
+            <div className="md:col-span-1 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6 fade-up" style={{ transitionDelay: '50ms' }}>
               <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">Backend</div>
               <div className="flex flex-wrap gap-2">
                 <div className="skill-pill flex items-center gap-[6px] bg-[#FFFFFF] border border-[#E5E5E5] rounded-full px-[14px] py-[6px] pl-[10px] font-['Inter'] text-[14px] text-[#1a1c1c] cursor-default">
@@ -169,7 +170,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* AI / LLM (col-span-1, row-span-2) */}
-            <div className="md:col-span-1 md:row-span-2 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6">
+            <div className="md:col-span-1 md:row-span-2 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6 fade-up" style={{ transitionDelay: '100ms' }}>
               <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">AI / LLM</div>
               <div className="flex flex-wrap gap-2">
                 <div className="flex items-center gap-[6px] bg-[#0B0C0C] border border-[#0B0C0C] rounded-full px-[14px] py-[6px] pl-[10px] font-['Inter'] text-[14px] text-[#F9F9F9] cursor-default">
@@ -196,7 +197,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Database (col-span-1) */}
-            <div className="md:col-span-1 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6">
+            <div className="md:col-span-1 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6 fade-up" style={{ transitionDelay: '150ms' }}>
               <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">Database</div>
               <div className="flex flex-wrap gap-2">
                 <div className="skill-pill flex items-center gap-[6px] bg-[#FFFFFF] border border-[#E5E5E5] rounded-full px-[14px] py-[6px] pl-[10px] font-['Inter'] text-[14px] text-[#1a1c1c] cursor-default">
@@ -217,7 +218,7 @@ export default function HomePage() {
               </div>
             </div>
             {/* Auth & Security (col-span-1) */}
-            <div className="md:col-span-1 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6">
+            <div className="md:col-span-1 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6 fade-up" style={{ transitionDelay: '200ms' }}>
               <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">Auth &amp; Security</div>
               <div className="flex flex-wrap gap-2">
                 <div className="skill-pill flex items-center gap-[6px] bg-[#FFFFFF] border border-[#E5E5E5] rounded-full px-[14px] py-[6px] pl-[10px] font-['Inter'] text-[14px] text-[#1a1c1c] cursor-default">
@@ -232,18 +233,22 @@ export default function HomePage() {
               </div>
             </div>
             {/* Dark Stat Card (col-span-1) */}
-            <div className="md:col-span-1 bg-[#0B0C0C] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col justify-center gap-8">
+            <div className="md:col-span-1 bg-[#0B0C0C] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col justify-center gap-8 fade-up" style={{ transitionDelay: '250ms' }}>
               <div>
-                <div className="font-['Sora'] text-[48px] font-semibold text-[#F9F9F9] leading-tight">25+</div>
+                <div className="font-['Sora'] text-[48px] font-semibold text-[#F9F9F9] leading-tight">
+                  <CountUp end={25} suffix="+" />
+                </div>
                 <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#8a8989] uppercase">Tools &amp; Frameworks</div>
               </div>
               <div>
-                <div className="font-['Sora'] text-[48px] font-semibold text-[#F9F9F9] leading-tight">8</div>
+                <div className="font-['Sora'] text-[48px] font-semibold text-[#F9F9F9] leading-tight">
+                  <CountUp end={8} />
+                </div>
                 <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#8a8989] uppercase">Categories</div>
               </div>
             </div>
             {/* Mobile (col-span-2) */}
-            <div className="md:col-span-2 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6">
+            <div className="md:col-span-2 bg-[#F8F8F8] border border-[#E5E5E5] rounded-[16px] p-[24px] shadow-lg bento-card flex flex-col gap-6 fade-up" style={{ transitionDelay: '300ms' }}>
               <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">Mobile</div>
               <div className="flex flex-wrap gap-2">
                 <div className="skill-pill flex items-center gap-[6px] bg-[#FFFFFF] border border-[#E5E5E5] rounded-full px-[14px] py-[6px] pl-[10px] font-['Inter'] text-[14px] text-[#1a1c1c] cursor-default">
@@ -293,7 +298,7 @@ export default function HomePage() {
           {/* Project Cards List */}
           <div className="flex flex-col gap-[48px]">
             {/* Card 1: IntelliTrack (Image Right) */}
-            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up visible">
+            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '0ms' }}>
               <div className="flex-1 order-2 md:order-1">
                 <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · Full Stack · Developer Tools</span>
                 <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">IntelliTrack</h3>
@@ -310,21 +315,21 @@ export default function HomePage() {
                   <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
                 </div>
                 <div className="flex flex-row gap-3 mt-8">
-                  <a href="https://git-intellisolve.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-colors hover:bg-[#2f3131] flex items-center justify-center">Live Demo ↗</a>
-                  <a href="https://github.com/Saurabh-1706/AI_github_ticket_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-colors hover:bg-[#F3F3F4] flex items-center justify-center">View Code ↗</a>
+                  <a href="https://git-intellisolve.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Live Demo ↗</a>
+                  <a href="https://github.com/Saurabh-1706/AI_github_ticket_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
                 </div>
               </div>
-              <div className="flex-1 order-1 md:order-2 w-full">
+              <div className="flex-1 order-1 md:order-2 w-full overflow-hidden">
                 <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
-                  <img alt="IntelliTrack Dashboard" className="w-full h-auto inner-image block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAruJyqQTSpbeACVJfv--nlTIkX_IKFIBVixdbDhbR50TKc2aoodJW-PguVsCAvyy6nGCEIV4aERd5zISWAYXiQlNNxRUVpoSXZo5jSRqApKWZRbwa3jdiO5ysYdTn2uwZkKN4US7LP4ZEpkxqsBu5e9nD69dA19A_i88h1hXUje4nUiQrSmbZsfSirQpnqqcmAoGSRLFegRkifWmWyJqO83-UZmpeQvRhthe09ARdo9LBe-y3hs9YigUgYvdMOVfD6DEvlK-W05oND" />
+                  <img alt="IntelliTrack Dashboard" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAruJyqQTSpbeACVJfv--nlTIkX_IKFIBVixdbDhbR50TKc2aoodJW-PguVsCAvyy6nGCEIV4aERd5zISWAYXiQlNNxRUVpoSXZo5jSRqApKWZRbwa3jdiO5ysYdTn2uwZkKN4US7LP4ZEpkxqsBu5e9nD69dA19A_i88h1hXUje4nUiQrSmbZsfSirQpnqqcmAoGSRLFegRkifWmWyJqO83-UZmpeQvRhthe09ARdo9LBe-y3hs9YigUgYvdMOVfD6DEvlK-W05oND" />
                 </div>
               </div>
             </div>
             {/* Card 2: FitSaaS (Image Left) */}
-            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up visible">
-              <div className="flex-1 w-full">
+            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '150ms' }}>
+              <div className="flex-1 w-full overflow-hidden">
                 <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
-                  <img alt="FitSaaS Dashboard" className="w-full h-auto inner-image block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2P7Dn2IwM5O-eCGvyAs0naW2noqer1aj2vhpDL3k6TNVAqTHAxpS6OS2AIc9ekpqpTfSAkL0FgAT4nmUQ1adBMdkrwVtNgVkVNKdMY4XXPCfHj75wTzHRUm5ZFbsoeBycB45lY1vbP6WqrTc86jzPehuL__WsRCpYBRkPzZ6Xoxm7pnjevh78B8LtKrSVq54BcDaHyOh8XMdenYPN4s_QxzUJ656GDD39n5pD2uJQGjFgzoL3qg5Hp4WAsJHMhNq4-77eTTzspmlY" />
+                  <img alt="FitSaaS Dashboard" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2P7Dn2IwM5O-eCGvyAs0naW2noqer1aj2vhpDL3k6TNVAqTHAxpS6OS2AIc9ekpqpTfSAkL0FgAT4nmUQ1adBMdkrwVtNgVkVNKdMY4XXPCfHj75wTzHRUm5ZFbsoeBycB45lY1vbP6WqrTc86jzPehuL__WsRCpYBRkPzZ6Xoxm7pnjevh78B8LtKrSVq54BcDaHyOh8XMdenYPN4s_QxzUJ656GDD39n5pD2uJQGjFgzoL3qg5Hp4WAsJHMhNq4-77eTTzspmlY" />
                 </div>
               </div>
               <div className="flex-1">
@@ -342,13 +347,13 @@ export default function HomePage() {
                   <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">RBAC</span>
                 </div>
                 <div className="flex flex-row gap-3 mt-8">
-                  <a href="https://gymsphere-hub.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-colors hover:bg-[#2f3131] flex items-center justify-center">Live Demo ↗</a>
-                  <a href="https://github.com/Saurabh-1706/Gym_management_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-colors hover:bg-[#F3F3F4] flex items-center justify-center">View Code ↗</a>
+                  <a href="https://gymsphere-hub.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Live Demo ↗</a>
+                  <a href="https://github.com/Saurabh-1706/Gym_management_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
                 </div>
               </div>
             </div>
             {/* Card 3: RAG Knowledge Assistant (Image Right) */}
-            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up visible">
+            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '300ms' }}>
               <div className="flex-1 order-2 md:order-1">
                 <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · LLM · Python</span>
                 <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">RAG Knowledge Assistant</h3>
@@ -364,13 +369,13 @@ export default function HomePage() {
                   <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">SentenceTransformers</span>
                 </div>
                 <div className="flex flex-row gap-3 mt-8">
-                  <a href="https://tinyurl.com/rag-knowledge-assistant-demo" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-colors hover:bg-[#2f3131] flex items-center justify-center">Watch Demo ▶</a>
-                  <a href="https://github.com/Saurabh-1706/rag-knowledge-assistant" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-colors hover:bg-[#F3F3F4] flex items-center justify-center">View Code ↗</a>
+                  <a href="https://tinyurl.com/rag-knowledge-assistant-demo" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Watch Demo ▶</a>
+                  <a href="https://github.com/Saurabh-1706/rag-knowledge-assistant" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
                 </div>
               </div>
-              <div className="flex-1 order-1 md:order-2 w-full">
+              <div className="flex-1 order-1 md:order-2 w-full overflow-hidden">
                 <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
-                  <img alt="RAG Knowledge Assistant Interface" className="w-full h-auto inner-image block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Cr-CmEZUMAtDzZrQlArxDqyLNfVQ3K73429CjU-HI0idsqI1YxSPA4ysc1Jl2Rq3vg8281vIqD70X3AwoMvTlVMnjHbF7a91gh3Jal4ICaY4669OHYYOc_4iYGTnagkct5HmTfKbUqwwNnHXjmgecT6jDcEmuoRPJkmqHcMwwTAp7UvinMherUPUvGSoPr4rRSkuSbuFkjFzGjrcwwMtbBcplDmmrK3lxZ6s6SDraDHd4m9iohJTXlgDtLT6oXDYFJalT3lyQ6Ql" />
+                  <img alt="RAG Knowledge Assistant Interface" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Cr-CmEZUMAtDzZrQlArxDqyLNfVQ3K73429CjU-HI0idsqI1YxSPA4ysc1Jl2Rq3vg8281vIqD70X3AwoMvTlVMnjHbF7a91gh3Jal4ICaY4669OHYYOc_4iYGTnagkct5HmTfKbUqwwNnHXjmgecT6jDcEmuoRPJkmqHcMwwTAp7UvinMherUPUvGSoPr4rRSkuSbuFkjFzGjrcwwMtbBcplDmmrK3lxZ6s6SDraDHd4m9iohJTXlgDtLT6oXDYFJalT3lyQ6Ql" />
                 </div>
               </div>
             </div>
@@ -379,7 +384,7 @@ export default function HomePage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="bg-[#0B0C0C] py-[120px] text-center fade-up" id="contact">
+      <section className="bg-[#0B0C0C] py-[120px] text-center" id="contact">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
           {/* Section Label */}
           <div className="flex flex-col items-center mb-12">
@@ -388,32 +393,35 @@ export default function HomePage() {
           </div>
           {/* Headline */}
           <h2 className="font-['Sora'] text-[40px] md:text-[72px] font-semibold tracking-[-0.04em] text-[#F9F9F9] leading-tight mb-4">
-            Let's Build<br/>Something Together.
+            <span className="inline-block fade-up" style={{ transitionDelay: '0ms' }}>Let's</span>{' '}
+            <span className="inline-block fade-up" style={{ transitionDelay: '80ms' }}>Build</span><br/>
+            <span className="inline-block fade-up" style={{ transitionDelay: '160ms' }}>Something</span>{' '}
+            <span className="inline-block fade-up" style={{ transitionDelay: '240ms' }}>Together.</span>
           </h2>
           {/* Subtext */}
-          <p className="font-['Inter'] text-[18px] font-normal text-[#747878] mb-12 max-w-xl mx-auto">
+          <p className="font-['Inter'] text-[18px] font-normal text-[#747878] mb-12 max-w-xl mx-auto fade-up" style={{ transitionDelay: '320ms' }}>
             Open to full-time roles, freelance projects, and collaborations.
           </p>
           {/* Buttons */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-20">
-            <a className="bg-[#F9F9F9] text-[#0B0C0C] px-8 py-[14px] rounded-full font-semibold transition-opacity hover:opacity-90" href="mailto:saurabhmojad2173@gmail.com">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-20 fade-up" style={{ transitionDelay: '400ms' }}>
+            <a className="bg-[#F9F9F9] text-[#0B0C0C] px-8 py-[14px] rounded-full font-semibold transition-all duration-150 hover:opacity-90 hover:scale-[1.02] inline-block" href="mailto:saurabhmojad2173@gmail.com">
               Get In Touch →
             </a>
-            <a className="border border-[#444747] text-[#F9F9F9] px-8 py-[14px] rounded-full font-semibold transition-colors hover:bg-[#F9F9F9] hover:text-[#0B0C0C]" href="/Saurabh_Mojad_Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <a className="border border-[#444747] text-[#F9F9F9] px-8 py-[14px] rounded-full font-semibold transition-all duration-150 hover:bg-[#F9F9F9] hover:text-[#0B0C0C] hover:scale-[1.02] inline-block" href="/Saurabh_Mojad_Resume.pdf" target="_blank" rel="noopener noreferrer">
               Download Resume ↓
             </a>
           </div>
           {/* Divider */}
           <div className="w-full h-[1px] bg-[#2f3131] mb-8"></div>
           {/* Contact Links Row */}
-          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
-            <a className="font-['Inter'] text-[16px] text-[#747878] hover:text-[#F9F9F9] hover:underline transition-colors flex items-center gap-2" href="mailto:saurabhmojad2173@gmail.com">
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12 fade-up" style={{ transitionDelay: '480ms' }}>
+            <a className="font-['Inter'] text-[16px] text-[#747878] hover:text-[#F9F9F9] hover:underline transition-all duration-150 hover:scale-110 flex items-center gap-2" href="mailto:saurabhmojad2173@gmail.com">
               <span className="material-symbols-outlined text-sm">mail</span> saurabhmojad2173@gmail.com
             </a>
-            <a className="font-['Inter'] text-[16px] text-[#747878] hover:text-[#F9F9F9] hover:underline transition-colors flex items-center gap-2" href="https://github.com/Saurabh-1706" target="_blank" rel="noopener noreferrer">
+            <a className="font-['Inter'] text-[16px] text-[#747878] hover:text-[#F9F9F9] hover:underline transition-all duration-150 hover:scale-110 flex items-center gap-2" href="https://github.com/Saurabh-1706" target="_blank" rel="noopener noreferrer">
               <span className="material-symbols-outlined text-sm">code</span> github.com/Saurabh-1706
             </a>
-            <a className="font-['Inter'] text-[16px] text-[#747878] hover:text-[#F9F9F9] hover:underline transition-colors flex items-center gap-2" href="https://linkedin.com/in/saurabh-mojad" target="_blank" rel="noopener noreferrer">
+            <a className="font-['Inter'] text-[16px] text-[#747878] hover:text-[#F9F9F9] hover:underline transition-all duration-150 hover:scale-110 flex items-center gap-2" href="https://linkedin.com/in/saurabh-mojad" target="_blank" rel="noopener noreferrer">
               <span className="material-symbols-outlined text-sm">link</span> linkedin.com/in/saurabh-mojad
             </a>
           </div>
