@@ -37,6 +37,9 @@ export default function Navigation() {
           <Link href="#skills" className="text-secondary hover:text-primary transition-colors duration-200">
             Skills
           </Link>
+          <Link href="#experience" className="text-secondary hover:text-primary transition-colors duration-200">
+            Experience
+          </Link>
           <Link href="#work" className="text-secondary hover:text-primary transition-colors duration-200">
             Projects
           </Link>

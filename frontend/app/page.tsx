@@ -281,6 +281,91 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Work Experience */}
+      <section className="py-[120px]" id="experience">
+        <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+          {/* Header */}
+          <div className="mb-12 relative fade-up">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-[2px] h-[48px] bg-[#0B0C0C]"></div>
+              <div className="font-['Inter'] text-[12px] font-semibold tracking-[0.1em] text-[#444747] uppercase">CAREER</div>
+            </div>
+            <h2 className="font-['Sora'] text-[48px] font-semibold tracking-[-0.03em] text-[#0B0C0C] mb-4">Work Experience</h2>
+            <p className="font-['Inter'] text-[18px] text-[#444747] max-w-[480px]">
+              Hands-on internships applying AI engineering and data analytics to real products.
+            </p>
+          </div>
+          {/* Timeline */}
+          <div className="flex flex-col gap-8">
+            {/* Experience 1: AI Engineer Intern */}
+            <div className="bg-[#F8F8F8] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 shadow-lg fade-up" style={{ transitionDelay: '0ms' }}>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-2">
+                <div>
+                  <h3 className="font-['Sora'] text-[24px] font-semibold text-[#0B0C0C] mb-1">AI Engineer Intern</h3>
+                  <p className="font-['Inter'] text-[16px] text-[#444747]">KasNet Technologies · RAG Knowledge Assistant</p>
+                </div>
+                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide whitespace-nowrap shrink-0">Jan 2026 – May 2026</span>
+              </div>
+              <ul className="flex flex-col gap-3 my-6">
+                <li className="flex items-start gap-3 font-['Inter'] text-[16px] leading-[26px] text-[#444747]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B0C0C] mt-[10px] shrink-0"></span>
+                  Built a full-stack RAG application (FastAPI + Next.js) enabling natural-language Q&amp;A over PDFs, text, and scraped URLs using ChromaDB and GPT-4o.
+                </li>
+                <li className="flex items-start gap-3 font-['Inter'] text-[16px] leading-[26px] text-[#444747]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B0C0C] mt-[10px] shrink-0"></span>
+                  Implemented and compared 4 retrieval strategies — vector search, BM25 hybrid, Cohere reranking, and multi-query RRF fusion — to reduce retrieval mismatch.
+                </li>
+                <li className="flex items-start gap-3 font-['Inter'] text-[16px] leading-[26px] text-[#444747]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B0C0C] mt-[10px] shrink-0"></span>
+                  Built a custom LLM-as-a-judge evaluation pipeline scoring faithfulness, relevancy, precision, and recall to benchmark strategies with real metrics.
+                </li>
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Python</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">FastAPI</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">LangChain</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">GPT-4o</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">ChromaDB</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Cohere</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Next.js</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">TypeScript</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Docker</span>
+              </div>
+            </div>
+            {/* Experience 2: Data Analytics Intern */}
+            <div className="bg-[#F8F8F8] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 shadow-lg fade-up" style={{ transitionDelay: '150ms' }}>
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-2">
+                <div>
+                  <h3 className="font-['Sora'] text-[24px] font-semibold text-[#0B0C0C] mb-1">Data Analytics Intern</h3>
+                  <p className="font-['Inter'] text-[16px] text-[#444747]">Kasnet Technologies</p>
+                </div>
+                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide whitespace-nowrap shrink-0">Jan 2025 – Feb 2025</span>
+              </div>
+              <ul className="flex flex-col gap-3 my-6">
+                <li className="flex items-start gap-3 font-['Inter'] text-[16px] leading-[26px] text-[#444747]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B0C0C] mt-[10px] shrink-0"></span>
+                  Automated data cleaning and validation workflows in Python/Pandas for a MySQL-backed dataset of 48,620 sales records, ensuring accuracy and consistency.
+                </li>
+                <li className="flex items-start gap-3 font-['Inter'] text-[16px] leading-[26px] text-[#444747]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B0C0C] mt-[10px] shrink-0"></span>
+                  Analyzed sales data to identify top-selling pizzas, trends, and peak hours, translating findings into clear business insights.
+                </li>
+                <li className="flex items-start gap-3 font-['Inter'] text-[16px] leading-[26px] text-[#444747]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#0B0C0C] mt-[10px] shrink-0"></span>
+                  Built an interactive dashboard with dynamic filters so stakeholders could quickly explore sales by product and time, guiding decisions on which pizzas to prioritize during high demand periods.
+                </li>
+              </ul>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Python</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Pandas</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">MySQL</span>
+                <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747] bg-white">Data Visualization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Featured Projects */}
       <section className="py-[120px] bg-[#F9F9F9]" id="work">
         <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
@@ -297,63 +382,8 @@ export default function HomePage() {
           </div>
           {/* Project Cards List */}
           <div className="flex flex-col gap-[48px]">
-            {/* Card 1: IntelliTrack (Image Right) */}
+            {/* Card 1: RAG Knowledge Assistant (Image Right) */}
             <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '0ms' }}>
-              <div className="flex-1 order-2 md:order-1">
-                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · Full Stack · Developer Tools</span>
-                <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">IntelliTrack</h3>
-                <p className="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
-                  AI-powered GitHub issue intelligence platform — semantic duplicate detection, GPT-4o risk scoring, automated triage, and downloadable PDF reports for any public repository.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Next.js</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">MongoDB</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OpenAI API</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">ChromaDB</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OAuth2</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
-                </div>
-                <div className="flex flex-row gap-3 mt-8">
-                  <a href="https://git-intellisolve.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Live Demo ↗</a>
-                  <a href="https://github.com/Saurabh-1706/AI_github_ticket_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
-                </div>
-              </div>
-              <div className="flex-1 order-1 md:order-2 w-full overflow-hidden">
-                <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
-                  <img alt="IntelliTrack Dashboard" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAruJyqQTSpbeACVJfv--nlTIkX_IKFIBVixdbDhbR50TKc2aoodJW-PguVsCAvyy6nGCEIV4aERd5zISWAYXiQlNNxRUVpoSXZo5jSRqApKWZRbwa3jdiO5ysYdTn2uwZkKN4US7LP4ZEpkxqsBu5e9nD69dA19A_i88h1hXUje4nUiQrSmbZsfSirQpnqqcmAoGSRLFegRkifWmWyJqO83-UZmpeQvRhthe09ARdo9LBe-y3hs9YigUgYvdMOVfD6DEvlK-W05oND" />
-                </div>
-              </div>
-            </div>
-            {/* Card 2: FitSaaS (Image Left) */}
-            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '150ms' }}>
-              <div className="flex-1 w-full overflow-hidden">
-                <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
-                  <img alt="FitSaaS Dashboard" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2P7Dn2IwM5O-eCGvyAs0naW2noqer1aj2vhpDL3k6TNVAqTHAxpS6OS2AIc9ekpqpTfSAkL0FgAT4nmUQ1adBMdkrwVtNgVkVNKdMY4XXPCfHj75wTzHRUm5ZFbsoeBycB45lY1vbP6WqrTc86jzPehuL__WsRCpYBRkPzZ6Xoxm7pnjevh78B8LtKrSVq54BcDaHyOh8XMdenYPN4s_QxzUJ656GDD39n5pD2uJQGjFgzoL3qg5Hp4WAsJHMhNq4-77eTTzspmlY" />
-                </div>
-              </div>
-              <div className="flex-1">
-                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">SaaS · Multi-tenant · Full Stack</span>
-                <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">FitSaaS</h3>
-                <p className="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
-                  Multi-tenant gym management SaaS with role-based access control, member management, attendance tracking, and branded dashboards for each gym — built for scale.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Next.js</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">MongoDB</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Tailwind CSS</span>
-                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">RBAC</span>
-                </div>
-                <div className="flex flex-row gap-3 mt-8">
-                  <a href="https://gymsphere-hub.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Live Demo ↗</a>
-                  <a href="https://github.com/Saurabh-1706/Gym_management_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
-                </div>
-              </div>
-            </div>
-            {/* Card 3: RAG Knowledge Assistant (Image Right) */}
-            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '300ms' }}>
               <div className="flex-1 order-2 md:order-1">
                 <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · LLM · Python</span>
                 <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">RAG Knowledge Assistant</h3>
@@ -376,6 +406,87 @@ export default function HomePage() {
               <div className="flex-1 order-1 md:order-2 w-full overflow-hidden">
                 <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
                   <img alt="RAG Knowledge Assistant Interface" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5Cr-CmEZUMAtDzZrQlArxDqyLNfVQ3K73429CjU-HI0idsqI1YxSPA4ysc1Jl2Rq3vg8281vIqD70X3AwoMvTlVMnjHbF7a91gh3Jal4ICaY4669OHYYOc_4iYGTnagkct5HmTfKbUqwwNnHXjmgecT6jDcEmuoRPJkmqHcMwwTAp7UvinMherUPUvGSoPr4rRSkuSbuFkjFzGjrcwwMtbBcplDmmrK3lxZ6s6SDraDHd4m9iohJTXlgDtLT6oXDYFJalT3lyQ6Ql" />
+                </div>
+              </div>
+            </div>
+            {/* Card 2: IntelliTrack (Image Left) */}
+            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '150ms' }}>
+              <div className="flex-1 w-full overflow-hidden">
+                <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
+                  <img alt="IntelliTrack Dashboard" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAruJyqQTSpbeACVJfv--nlTIkX_IKFIBVixdbDhbR50TKc2aoodJW-PguVsCAvyy6nGCEIV4aERd5zISWAYXiQlNNxRUVpoSXZo5jSRqApKWZRbwa3jdiO5ysYdTn2uwZkKN4US7LP4ZEpkxqsBu5e9nD69dA19A_i88h1hXUje4nUiQrSmbZsfSirQpnqqcmAoGSRLFegRkifWmWyJqO83-UZmpeQvRhthe09ARdo9LBe-y3hs9YigUgYvdMOVfD6DEvlK-W05oND" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">AI · Full Stack · Developer Tools</span>
+                <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">IntelliTrack</h3>
+                <p className="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
+                  AI-powered GitHub issue intelligence platform — semantic duplicate detection, GPT-4o risk scoring, automated triage, and downloadable PDF reports for any public repository.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Next.js</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">MongoDB</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OpenAI API</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">ChromaDB</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OAuth2</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
+                </div>
+                <div className="flex flex-row gap-3 mt-8">
+                  <a href="https://git-intellisolve.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Live Demo ↗</a>
+                  <a href="https://github.com/Saurabh-1706/AI_github_ticket_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
+                </div>
+              </div>
+            </div>
+            {/* Card 3: FitSaaS (Image Right) */}
+            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '300ms' }}>
+              <div className="flex-1 order-2 md:order-1">
+                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">SaaS · Multi-tenant · Full Stack</span>
+                <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">FitSaaS</h3>
+                <p className="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
+                  Multi-tenant gym management SaaS with role-based access control, member management, attendance tracking, and branded dashboards for each gym — built for scale.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Next.js</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">FastAPI</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">MongoDB</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">JWT</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Tailwind CSS</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">RBAC</span>
+                </div>
+                <div className="flex flex-row gap-3 mt-8">
+                  <a href="https://gymsphere-hub.vercel.app/" target="_blank" className="bg-[#0B0C0C] text-[#F9F9F9] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#2f3131] hover:-translate-y-[2px] flex items-center justify-center">Live Demo ↗</a>
+                  <a href="https://github.com/Saurabh-1706/Gym_management_system" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
+                </div>
+              </div>
+              <div className="flex-1 order-1 md:order-2 w-full overflow-hidden">
+                <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
+                  <img alt="FitSaaS Dashboard" className="w-full h-auto inner-image block hover-zoom-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2P7Dn2IwM5O-eCGvyAs0naW2noqer1aj2vhpDL3k6TNVAqTHAxpS6OS2AIc9ekpqpTfSAkL0FgAT4nmUQ1adBMdkrwVtNgVkVNKdMY4XXPCfHj75wTzHRUm5ZFbsoeBycB45lY1vbP6WqrTc86jzPehuL__WsRCpYBRkPzZ6Xoxm7pnjevh78B8LtKrSVq54BcDaHyOh8XMdenYPN4s_QxzUJ656GDD39n5pD2uJQGjFgzoL3qg5Hp4WAsJHMhNq4-77eTTzspmlY" />
+                </div>
+              </div>
+            </div>
+            {/* Card 4: AI Workout Tracker (Image Left) */}
+            <div className="project-card bg-[#FFFFFF] border border-[#E5E5E5] rounded-[24px] p-8 md:p-12 flex flex-col md:flex-row gap-12 items-center fade-up group" style={{ transitionDelay: '450ms' }}>
+              <div className="flex-1 w-full overflow-hidden">
+                <div className="rounded-xl overflow-hidden border border-[#E5E5E5] shadow-sm bg-surface-container-low">
+                  <img alt="AI Workout Tracker App" className="w-full h-auto inner-image block hover-zoom-img" src="/ai-workout-tracker.png" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <span className="inline-block bg-[#0B0C0C] text-[#F9F9F9] px-4 py-2 rounded-full font-['Inter'] text-[12px] font-semibold tracking-wide mb-6">Mobile · AI · Cross-Platform</span>
+                <h3 className="font-['Sora'] text-[32px] font-semibold text-[#0B0C0C] mb-4">AI Workout Tracker</h3>
+                <p className="font-['Inter'] text-[16px] leading-[28px] text-[#444747] mb-8">
+                  Cross-platform workout tracker (iOS/Android/Web) with real-time set logging, a live stopwatch, and an exercise library, backed by a serverless Sanity CMS and Clerk auth, plus an OpenAI-powered AI coach for exercise-specific form guidance.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">React Native</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Expo</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">TypeScript</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Sanity CMS</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">Clerk</span>
+                  <span className="px-3 py-1 border border-[#E5E5E5] rounded-full font-['Inter'] text-[12px] text-[#444747]">OpenAI API</span>
+                </div>
+                <div className="flex flex-row gap-3 mt-8">
+                  <a href="https://github.com/Saurabh-1706/Ai_workout_tracker" target="_blank" className="bg-[#FFFFFF] border border-[#0B0C0C] text-[#0B0C0C] rounded-full px-[28px] py-[12px] font-['Inter'] text-[14px] font-semibold transition-all duration-150 hover:bg-[#F3F3F4] hover:-translate-y-[2px] flex items-center justify-center">View Code ↗</a>
                 </div>
               </div>
             </div>
